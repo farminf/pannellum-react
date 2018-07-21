@@ -27,10 +27,10 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1"
   },
-  "author": "",
-  "homepage": "",
+  "author": "farminf<farmin.f@gmail.com>",
+  "homepage": "https://farminf.github.io",
   "license": "MIT",
-  "repository": "",
+  "repository": "https://github.com/farminf/pannellum-react",
   "keywords": [
     "react-component"
   ]

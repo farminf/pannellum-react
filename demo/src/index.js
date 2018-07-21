@@ -1,13 +1,21 @@
 import React, {Component} from 'react'
 import {render} from 'react-dom'
 
-import Example from '../../src'
+import { Pannellum }  from '../../src'
+import myImage from "./images/alma.jpg"
+// import myImage from "./images/GironMuseum.jpg"
 
 class Demo extends Component {
+  state = {loading: false}
+
+  handleToggleLoading = () => {
+    this.setState({loading: !this.state.loading})
+  }
+
   render() {
     return <div>
-      <h1>pannellum-react Demo</h1>
-      <Example/>
+      <h1>Pannellum React Component</h1>
+      <Pannellum width="100%" height="500px" image={myImage}/>
     </div>
   }
 }
