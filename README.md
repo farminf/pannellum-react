@@ -4,7 +4,7 @@
 [![npm package][npm-badge]][npm]
 [![Coveralls][coveralls-badge]][coveralls]
 
-This is React Component library for the [Pannellum project](https://github.com/mpetroff/pannellum/)
+React Component library for the [Pannellum project](https://github.com/mpetroff/pannellum/)
 
 [build-badge]: https://travis-ci.org/farminf/pannellum-react.svg?branch=master
 [build]: https://travis-ci.org/farminf/pannellum-react
