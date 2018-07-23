@@ -1,7 +1,7 @@
 {
   "name": "pannellum-react",
-  "version": "1.0.0",
-  "description": "pannellum-react React component",
+  "version": "0.1.0",
+  "description": "Pannellum React Component",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -28,7 +28,7 @@
     "react-dom": "^16.4.1"
   },
   "author": "farminf<farmin.f@gmail.com>",
-  "homepage": "https://farminf.github.io",
+  "homepage": "https://github.com/farminf/pannellum-react",
   "license": "MIT",
   "repository": "https://github.com/farminf/pannellum-react",
   "keywords": [
