@@ -261,7 +261,6 @@
                 "ignore": []
             }
         ],
-        "react/jsx-sort-props": "warn",
         "react/jsx-tag-spacing": "warn",
         "react/jsx-uses-react": "warn",
         "react/jsx-uses-vars": "warn",
@@ -278,8 +277,6 @@
         "react/react-in-jsx-scope": "warn",
         "react/require-render-return": "warn",
         "react/self-closing-comp": "warn",
-        "react/sort-comp": "warn",
-        "react/sort-prop-types": "warn",
         "react/style-prop-object": "warn",
         "react/void-dom-elements-no-children": "warn",
         "jsx-a11y/aria-role": "warn",
