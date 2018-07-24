@@ -3,9 +3,20 @@ import React, { Component } from 'react';
 import '../pannellum/css/pannellum.css';
 import '../pannellum/js/libpannellum.js';
 import '../pannellum/js/pannellum.js';
+import '../pannellum/js/RequestAnimationFrame';
+
+var ID = function () {
+  return '_' + Math.random().toString(36).substr(2, 9);
+};
 
 class Pannellum extends Component {
 
+  constructor(props){
+    super(props);
+    this.state = {
+      id: ID()
+    };
+  }
 
   static propTypes = {
     width: propTypes.string,
@@ -101,7 +112,7 @@ class Pannellum extends Component {
     };
 
     Object.keys(jsonConfig).forEach((key) => (jsonConfig[key] === "") && delete jsonConfig[key]);
-    const panorama = pannellum.viewer('panorama', jsonConfig);
+    const panorama = pannellum.viewer(this.state.id, jsonConfig);
     panorama.on("load" , this.props.onLoad);
     panorama.on("scenechange" , this.props.onScenechange);
     panorama.on("scenechangefadedone" , this.props.onScenechangefadedone);
@@ -124,7 +135,7 @@ class Pannellum extends Component {
     };
     return (
       <div 
-        id="panorama"
+        id={this.state.id}
         style={divStyle}
       />
     );
