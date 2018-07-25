@@ -3,11 +3,23 @@ import React, { Component } from 'react';
 import '../pannellum/css/pannellum.css';
 import '../pannellum/js/libpannellum.js';
 import '../pannellum/js/pannellum.js';
+import '../pannellum/js/RequestAnimationFrame';
+
+var ID = function () {
+  return '_' + Math.random().toString(36).substr(2, 9);
+};
 
 class Pannellum extends Component {
 
+  constructor(props){
+    super(props);
+    this.state = {
+      id: ID()
+    };
+  }
 
   static propTypes = {
+    id: propTypes.string,
     width: propTypes.string,
     height: propTypes.string,
     image: propTypes.string,
@@ -45,7 +57,7 @@ class Pannellum extends Component {
     width: '100%',
     height: '400px',
     image:'',
-    yaw : 0 ,
+    yaw : 0,
     pitch: 0,
     hfov: 200,
     compass: false,
@@ -101,7 +113,7 @@ class Pannellum extends Component {
     };
 
     Object.keys(jsonConfig).forEach((key) => (jsonConfig[key] === "") && delete jsonConfig[key]);
-    const panorama = pannellum.viewer('panorama', jsonConfig);
+    const panorama = pannellum.viewer(this.props.id ? this.props.id : this.state.id, jsonConfig);
     panorama.on("load" , this.props.onLoad);
     panorama.on("scenechange" , this.props.onScenechange);
     panorama.on("scenechangefadedone" , this.props.onScenechangefadedone);
@@ -124,7 +136,7 @@ class Pannellum extends Component {
     };
     return (
       <div 
-        id="panorama"
+        id={this.props.id ? this.props.id : this.state.id}
         style={divStyle}
       />
     );
