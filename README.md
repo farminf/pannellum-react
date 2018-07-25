@@ -38,10 +38,10 @@ import { pannellum } from "pannellum-react";
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 
-import { Pannellum }  from '../../src';
+import { pannellum } from "pannellum-react";
 import myImage from "./images/alma.jpg";
 
-const Demo = () => (
+const PannellumReact = () => (
   <div>
     <h1>Pannellum React Component</h>
     <Pannellum
@@ -68,12 +68,12 @@ const Demo = () => (
     </div>
 );
 
-export default Demo;
+export default PannellumReact;
 ```
 
 ## Demo
 
-TBD
+WIP
 
 ## API
 
@@ -81,37 +81,38 @@ pannellum-react has most of the official pannellum properties (not all of them).
 
 **Props API**
 
-| Name                   | Type     | Default | Description                    |
-| ---------------------- | -------- | ------- | ------------------------------ |
-| width                  | String   | "100%"  | The width of the panorama div  |
-| height                 | String   | "400px" | The height of the panorama div |
-| image                  | String   | ""      | The 360 image                  |
-| yaw                    | Number   | 0       |                                |
-| pitch                  | Number   | 0       |                                |
-| hfov                   | Number   | 200     |                                |
-| compass                | Boolean  | false   |                                |
-| title                  | String   | ""      |                                |
-| author                 | String   | ""      |                                |
-| preview                | String   | ""      |                                |
-| previewTitle           | String   | ""      |                                |
-| previewAuthor          | String   | ""      |                                |
-| autoLoad               | Boolean  | false   |                                |
-| orientationOnByDefault | Boolean  | false   |                                |
-| showZoomCtrl           | Boolean  | true    |                                |
-| keyboardZoom           | Boolean  | true    |                                |
-| mouseZoom              | Boolean  | true    |                                |
-| draggable              | Boolean  | true    |                                |
-| showFullscreenCtrl     | Boolean  | true    |                                |
-| showControls           | Boolean  | true    |                                |
-| onLoad                 | Callback |         |                                |
-| onError                | Callback |         |                                |
-| onErrorcleared         | Callback |         |                                |
-| onMousedown            | Callback |         |                                |
-| onMouseup              | Callback |         |                                |
-| onTouchstart           | Callback |         |                                |
-| onTouchend             | Callback |         |                                |
-| hotspots               | Array    | []      |                                |
-| hotspotDebug           | Boolean  | false   |                                |
+| Name                   | Type     | Default                 | Description                                                                                    |
+| ---------------------- | -------- | ----------------------- | ---------------------------------------------------------------------------------------------- |
+| id                     | String   | Unique Generated String | If you pass it, it will use it for div id, if not it would be unique string for each component |
+| width                  | String   | "100%"                  | The width of the panorama div                                                                  |
+| height                 | String   | "400px"                 | The height of the panorama div                                                                 |
+| image                  | String   | ""                      | The 360 image                                                                                  |
+| yaw                    | Number   | 0                       |                                                                                                |
+| pitch                  | Number   | 0                       |                                                                                                |
+| hfov                   | Number   | 200                     |                                                                                                |
+| compass                | Boolean  | false                   |                                                                                                |
+| title                  | String   | ""                      |                                                                                                |
+| author                 | String   | ""                      |                                                                                                |
+| preview                | String   | ""                      |                                                                                                |
+| previewTitle           | String   | ""                      |                                                                                                |
+| previewAuthor          | String   | ""                      |                                                                                                |
+| autoLoad               | Boolean  | false                   |                                                                                                |
+| orientationOnByDefault | Boolean  | false                   |                                                                                                |
+| showZoomCtrl           | Boolean  | true                    |                                                                                                |
+| keyboardZoom           | Boolean  | true                    |                                                                                                |
+| mouseZoom              | Boolean  | true                    |                                                                                                |
+| draggable              | Boolean  | true                    |                                                                                                |
+| showFullscreenCtrl     | Boolean  | true                    |                                                                                                |
+| showControls           | Boolean  | true                    |                                                                                                |
+| onLoad                 | Callback |                         |                                                                                                |
+| onError                | Callback |                         |                                                                                                |
+| onErrorcleared         | Callback |                         |                                                                                                |
+| onMousedown            | Callback |                         |                                                                                                |
+| onMouseup              | Callback |                         |                                                                                                |
+| onTouchstart           | Callback |                         |                                                                                                |
+| onTouchend             | Callback |                         |                                                                                                |
+| hotspots               | Array    | []                      |                                                                                                |
+| hotspotDebug           | Boolean  | false                   |                                                                                                |
 
 **HotSpot API**
 

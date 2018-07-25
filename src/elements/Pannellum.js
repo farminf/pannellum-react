@@ -19,6 +19,7 @@ class Pannellum extends Component {
   }
 
   static propTypes = {
+    id: propTypes.string,
     width: propTypes.string,
     height: propTypes.string,
     image: propTypes.string,
@@ -56,7 +57,7 @@ class Pannellum extends Component {
     width: '100%',
     height: '400px',
     image:'',
-    yaw : 0 ,
+    yaw : 0,
     pitch: 0,
     hfov: 200,
     compass: false,
@@ -112,7 +113,7 @@ class Pannellum extends Component {
     };
 
     Object.keys(jsonConfig).forEach((key) => (jsonConfig[key] === "") && delete jsonConfig[key]);
-    const panorama = pannellum.viewer(this.state.id, jsonConfig);
+    const panorama = pannellum.viewer(this.props.id ? this.props.id : this.state.id, jsonConfig);
     panorama.on("load" , this.props.onLoad);
     panorama.on("scenechange" , this.props.onScenechange);
     panorama.on("scenechangefadedone" , this.props.onScenechangefadedone);
@@ -135,7 +136,7 @@ class Pannellum extends Component {
     };
     return (
       <div 
-        id={this.state.id}
+        id={this.props.id ? this.props.id : this.state.id}
         style={divStyle}
       />
     );
