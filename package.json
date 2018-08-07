@@ -1,6 +1,6 @@
 {
   "name": "pannellum-react",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Pannellum React Component",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -23,9 +23,12 @@
     "react": "16.x"
   },
   "devDependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "nwb": "0.21.x",
     "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "video.js": "^7.1.0"
   },
   "author": "farminf<farmin.f@gmail.com>",
   "homepage": "https://github.com/farminf/pannellum-react",

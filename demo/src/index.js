@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 
-import { Pannellum }  from '../../src';
+import { Pannellum, PannellumVideo }  from '../../src';
 import myImage from "./images/alma.jpg";
+import myVideo from "./images/jfk.mp4";
+
 
 const Demo = () => (
   <div>
     <h1>Pannellum React Component</h1>
     <Pannellum
-      width="100%"
+      width="700px"
       height="400px"
       image={myImage}
       pitch={10}
       yaw={180}
-      hfov={500}
+      hfov={110}
       autoLoad
       author=""
       title=""
@@ -49,7 +51,7 @@ const Demo = () => (
       hotspotDebug={false}
     />
     <Pannellum
-      width="500px"
+      width="800px"
       height="300px"
       image={myImage}
       pitch={10}
@@ -77,17 +79,42 @@ const Demo = () => (
       onMouseup={(evt)=>{console.log("Mouse Up", evt);}}
       onTouchstart={(evt)=>{console.log("Touch Start", evt);}}
       onTouchend={(evt)=>{console.log("Touch End", evt);}}
-      hotspots={[
-        {
-          "pitch": 11,
-          "yaw": -167,
-          "type": "info",
-          "text": "Info Hotspot Text 2",
-          "URL": "https://github.com/farminf/pannellum-react"
-        }
-      ]}
       hotspotDebug={false}
+    >
+      <Pannellum.Hotspot 
+        type="info"
+        pitch={11}
+        yaw={-167}
+        text="Info Hotspot Text 3"
+        URL="https://github.com/farminf"
+      />
+
+      <Pannellum.Hotspot 
+        type="info"
+        pitch={31}
+        yaw={-107}
+        text="Info Hotspot Text 4"
+        URL="https://github.com/farminf"
+      />
+
+    </Pannellum>
+    <PannellumVideo
+      video={myVideo}
+      width="800px"
+      height="300px"
+      pitch={10}
+      yaw={180}
+      hfov={500}
     />
+
+    <PannellumVideo
+    video={myVideo}
+    width="1000px"
+    height="500px"
+    pitch={10}
+    yaw={180}
+    hfov={500}
+  />
   </div>
 );
 

@@ -5,8 +5,14 @@ module.exports = {
     umd: {
       global: 'PannellumReact',
       externals: {
-        react: 'React'
+        react: 'React',
+        videojs: 'video.js'
       }
     }
+  },
+  webpack: {
+    html: {
+      template: 'src/index.html'
+    }
   }
-}
+};
