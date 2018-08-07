@@ -9,6 +9,9 @@ var ID = function () {
   return '_' + Math.random().toString(36).substr(2, 9);
 };
 
+
+const Hotspot = () => null;
+
 class Pannellum extends Component {
 
   constructor(props){
@@ -19,6 +22,10 @@ class Pannellum extends Component {
   }
 
   static propTypes = {
+    children: propTypes.oneOfType([
+      propTypes.arrayOf(propTypes.node),
+      propTypes.node
+    ]),
     id: propTypes.string,
     width: propTypes.string,
     height: propTypes.string,
@@ -26,6 +33,8 @@ class Pannellum extends Component {
     yaw : propTypes.number,
     pitch: propTypes.number,
     hfov: propTypes.number,
+    minHfov: propTypes.number,
+    maxHfov: propTypes.number,
     compass: propTypes.bool,
     preview: propTypes.string,
     previewTitle: propTypes.string,
@@ -49,17 +58,19 @@ class Pannellum extends Component {
     onMouseup: propTypes.func,
     onTouchstart: propTypes.func,
     onTouchend: propTypes.func,
-    hotspots: propTypes.array,
     hotspotDebug: propTypes.bool
   }
 
   static defaultProps = {
+    children:[],
     width: '100%',
     height: '400px',
     image:'',
     yaw : 0,
     pitch: 0,
-    hfov: 200,
+    hfov: 100,
+    minHfov: 50,
+    maxHfov: 150,
     compass: false,
     preview: '',
     previewTitle: '',
@@ -83,17 +94,42 @@ class Pannellum extends Component {
     onMouseup: ()=>{},
     onTouchstart: ()=>{},
     onTouchend: ()=>{},
-    hotspots:[],
     hotspotDebug: false,
   }
 
   componentDidMount = () => {
+    const { children } = this.props;
+    let hotspotArray = [];
+    if (Array.isArray(children)){
+      children.map(hotspot =>{
+        return hotspotArray.push({ 
+          "type":hotspot.props.type,
+          "pitch":hotspot.props.pitch,
+          "yaw":hotspot.props.yaw,
+          "text":hotspot.props.text,
+          "URL":hotspot.props.URL
+        });
+      });
+    } else {
+      hotspotArray.push(
+        { 
+          "type":children.props.type,
+          "pitch":children.props.pitch,
+          "yaw":children.props.yaw,
+          "text":children.props.text,
+          "URL":children.props.URL
+        }
+      );
+    }
+
     let jsonConfig = {
       type: "equirectangular",
       panorama: this.props.image,
       yaw : this.props.yaw,
       pitch: this.props.pitch,
       hfov: this.props.hfov,
+      minHfov: this.props.minHfov,
+      maxHfov: this.props.maxHfov,
       compass: this.props.compass,
       preview: this.props.preview,
       previewTitle:this.props.previewTitle,
@@ -108,8 +144,8 @@ class Pannellum extends Component {
       draggable: this.props.draggable,
       showFullscreenCtrl: this.props.showFullscreenCtrl,
       showControls:this.props.showControls,
-      hotSpots: this.props.hotspots,
-      hotSpotDebug: this.props.hotspotDebug
+      hotSpotDebug: this.props.hotspotDebug,
+      hotSpots: hotspotArray
     };
 
     Object.keys(jsonConfig).forEach((key) => (jsonConfig[key] === "") && delete jsonConfig[key]);
@@ -142,5 +178,5 @@ class Pannellum extends Component {
     );
   }
 }
-
+Pannellum.Hotspot = Hotspot;
 export default Pannellum;

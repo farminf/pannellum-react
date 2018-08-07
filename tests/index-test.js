@@ -1,12 +1,20 @@
-import expect from 'expect';
+import expect, { createSpy, spyOn, isSpy } from 'expect';
 import React from 'react';
 import { renderToStaticMarkup as render } from 'react-dom/server';
+import Enzyme, { shallow }  from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
 
 import {  Pannellum } from 'src/';
 
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('Pannellum', () => {
+
+  beforeEach(function(){
+    spyOn(console, 'error');
+  });
+
   it('renders a Pannellum component', () => {
     expect(render(
       <Pannellum
@@ -19,9 +27,8 @@ describe('Pannellum', () => {
   });
 
   it('renders with other props ', () => {
-    expect(render(
+    const component = shallow(
       <Pannellum
-        id="test"
         height="500px"
         width="100%"
         image={"https://pannellum.org/images/alma.jpg"}
@@ -39,11 +46,27 @@ describe('Pannellum', () => {
             URL: "https://github.com/farminf/pannellum-react"
           }
         ]}
-        onLoad={() => {
-          console.log("panorama loaded");
-        }}
+        onLoad={this.handleLoad}
+      />
+    );
+
+    expect(handleLoad.callCount).tobe(1);
+  });
+
+
+  it('fires onLoad callback', () => {
+    expect(render(
+      <Pannellum
+        id="test"
+        height="500px"
+        width="100%"
+        image={"https://pannellum.org/images/alma.jpg"}
+        onLoad={this.handleLoad}
       />
     ))
       .toInclude('<div id="test" style="width:100%;height:500px"></div>');
   });
+
+
+  
 });
