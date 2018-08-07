@@ -1,14 +1,9 @@
 import propTypes from 'prop-types';
 import React, { Component } from 'react';
 import '../pannellum/css/pannellum.css';
-import '../pannellum/css/video-js.css';
-
 import '../pannellum/js/libpannellum.js';
 import '../pannellum/js/RequestAnimationFrame';
-
 import '../pannellum/js/pannellum.js';
-import '../pannellum/js/video.min.js';
-
 import '../pannellum/js/videojs-pannellum-plugin';
 
 var ID = function () {

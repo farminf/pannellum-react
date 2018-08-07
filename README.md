@@ -22,11 +22,16 @@ Install pannellum-react component
 ```bash
 npm install pannellum-react --save
 ```
+add videojs cdn urls in your html file (index.html):
 
+```html
+  <link href="https://vjs.zencdn.net/5.4.6/video-js.css" rel="stylesheet" type="text/css">
+  <script src="https://vjs.zencdn.net/5.4.6/video.js"></script>
+```
 Import pannellum-react in your react component file by
 
 ```js
-import { pannellum } from "pannellum-react";
+import {Pannellum , PannellumVideo} from 'pannellum-react';
 ```
 
 > **Note:** Currently only `equirectangular` type is supported! planning to do also `multires`
@@ -39,8 +44,10 @@ import { pannellum } from "pannellum-react";
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 
-import { pannellum } from "pannellum-react";
+import { Pannellum } from "pannellum-react";
 import myImage from "./images/alma.jpg";
+import myVideo from "./images/video.mp4";
+
 
 const PannellumReact = () => (
   <div>
@@ -73,6 +80,11 @@ const PannellumReact = () => (
         URL="https://github.com/farminf"
       />
     </Pannellum>
+    {/*for video component*/}
+    <PannellumVideo
+      video={myVideo}
+    />
+
     </div>
 );
 
@@ -168,6 +180,12 @@ If createTooltipFunc is specified, this function is used to create the hot spot 
 clickHandlerFunc (function) and clickHandlerArgs (object)
 If clickHandlerFunc is specified, this function is added as an event handler for the hot spot’s click event. The event object and the contents of clickHandlerArgs are passed to the function as arguments.
 ```
+**Video API**
+| Name  | Type   | Default | Description            |
+| ----- | ------ | ------- | ---------------------- |
+| video | String | ''      | Path to your 360 video |
+
+
 
 ### Example with all the available props
 
