@@ -1,10 +1,13 @@
 import propTypes from 'prop-types';
 import React, { Component } from 'react';
+import videojs from 'video.js'
+import '../pannellum/css/video-js.css';
 import '../pannellum/css/pannellum.css';
 import '../pannellum/js/libpannellum.js';
 import '../pannellum/js/RequestAnimationFrame';
 import '../pannellum/js/pannellum.js';
 import '../pannellum/js/videojs-pannellum-plugin';
+
 
 var ID = function () {
   return '_' + Math.random().toString(36).substr(2, 9);
@@ -107,7 +110,7 @@ class PannellumVideo extends Component {
 
     Object.keys(jsonConfig).forEach((key) => (jsonConfig[key] === "") && delete jsonConfig[key]);    
 
-    const video = videojs(this.props.id ? this.props.id : this.state.id, {
+    this.video = videojs(this.videoNode, {
       loop: true,
       autoplay: true,
       controls: false,
@@ -117,23 +120,24 @@ class PannellumVideo extends Component {
           minHfov:80,
           maxHfov:130,
           autoRotate:0,
-          mouseZoom:false
+          mouseZoom:true,
+          hotSpots: [{
+            "pitch": 20.1,
+            "yaw": 100.5,
+            "type": "info",
+            "text": "hotspot",
+            "URL": "https://farminf.github.io/"
+          }]
         }
       } 
     });
-    video.on("load" , this.props.onLoad);
-    video.on("scenechange" , this.props.onScenechange);
-    video.on("scenechangefadedone" , this.props.onScenechangefadedone);
-    video.on("error" , this.props.onError);
-    video.on("errorcleared" , this.props.onErrorcleared);
-    video.on("mousedown" , this.props.onMousedown);
-    video.on("mouseup" , this.props.onMouseup);
-    video.on("touchstart" , this.props.onTouchstart);
-    video.on("touchend" , this.props.onTouchend);
-
   }
 
- 
+  componentWillUnmount() {
+    if (this.video) {
+      this.video.dispose();
+    }
+  }
   
   render() {
     let { width, height, video, ...props } = this.props;
@@ -143,20 +147,21 @@ class PannellumVideo extends Component {
     };
     return (
 
-      
-      <video
-        id={this.props.id ? this.props.id : this.state.id}
-        className="video-js vjs-default-skin vjs-big-play-centered" 
-        controls 
-        preload="none" 
-        crossOrigin="anonymous"
-        style={divStyle}
-      >
-        <source 
-          src={video}
-          type="video/mp4"
-        />
-      </video>
+      <div data-vjs-player>
+        <video
+          id={this.props.id ? this.props.id : this.state.id}
+          className="video-js vjs-default-skin vjs-big-play-centered" 
+          ref={node => this.videoNode = node}
+          preload="none" 
+          crossOrigin="anonymous"
+          style={divStyle}
+        >
+          <source 
+            src={video}
+            type="video/mp4"
+          />
+        </video>
+      </div>
     );
   }
 }

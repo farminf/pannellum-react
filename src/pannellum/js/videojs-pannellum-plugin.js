@@ -3,6 +3,7 @@
  * Copyright (c) 2015-2018 Matthew Petroff
  * MIT License
  */
+import videojs from 'video.js'
 
 (function(document, videojs, pannellum) {
     'use strict';

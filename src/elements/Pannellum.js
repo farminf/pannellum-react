@@ -5,11 +5,6 @@ import '../pannellum/js/libpannellum.js';
 import '../pannellum/js/pannellum.js';
 import '../pannellum/js/RequestAnimationFrame';
 
-var ID = function () {
-  return '_' + Math.random().toString(36).substr(2, 9);
-};
-
-
 const Hotspot = () => null;
 
 class Pannellum extends Component {
@@ -17,7 +12,7 @@ class Pannellum extends Component {
   constructor(props){
     super(props);
     this.state = {
-      id: ID()
+      id: Math.random().toString(36).substr(2, 9)
     };
   }
 
@@ -134,8 +129,8 @@ class Pannellum extends Component {
       preview: this.props.preview,
       previewTitle:this.props.previewTitle,
       previewAuthor:this.props.previewAuthor,
-      title : this.props.title,
       author: this.props.author,
+      title : this.props.title,
       autoLoad: this.props.autoLoad,
       orientationOnByDefault: this.props.orientationOnByDefault,
       showZoomCtrl: this.props.showZoomCtrl,
@@ -162,8 +157,6 @@ class Pannellum extends Component {
 
   }
 
- 
-  
   render() {
     let { width, height, ...props } = this.props;
     let divStyle = {
