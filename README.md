@@ -22,12 +22,7 @@ Install pannellum-react component
 ```bash
 npm install pannellum-react --save
 ```
-add videojs cdn urls in your html file (index.html):
 
-```html
-  <link href="https://vjs.zencdn.net/5.4.6/video-js.css" rel="stylesheet" type="text/css">
-  <script src="https://vjs.zencdn.net/5.4.6/video.js"></script>
-```
 Import pannellum-react in your react component file by
 
 ```js
@@ -80,7 +75,9 @@ const PannellumReact = () => (
         URL="https://github.com/farminf"
       />
     </Pannellum>
-    {/*for video component*/}
+
+    {/******  for video component *******/}
+
     <PannellumVideo
       video={myVideo}
     />

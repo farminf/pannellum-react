@@ -106,15 +106,15 @@ const Demo = () => (
       yaw={180}
       hfov={500}
     />
-
     <PannellumVideo
     video={myVideo}
-    width="1000px"
-    height="500px"
+    width="800px"
+    height="300px"
     pitch={10}
     yaw={180}
     hfov={500}
   />
+    
   </div>
 );
 
