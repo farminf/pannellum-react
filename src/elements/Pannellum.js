@@ -5,7 +5,6 @@ import '../pannellum/js/libpannellum.js';
 import '../pannellum/js/pannellum.js';
 import '../pannellum/js/RequestAnimationFrame';
 
-const Hotspot = () => null;
 
 class Pannellum extends Component {
 
@@ -171,5 +170,6 @@ class Pannellum extends Component {
     );
   }
 }
-Pannellum.Hotspot = Hotspot;
+Pannellum.Hotspot = () => {};
+Pannellum.Hotspot = () => {};
 export default Pannellum;
