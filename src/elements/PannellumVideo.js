@@ -10,12 +10,6 @@ import '../pannellum/js/pannellum.js';
 import '../pannellum/js/videojs-pannellum-plugin';
 
 
-
-
-
-
-
-
 class PannellumVideo extends Component {
 
   constructor(props){
@@ -68,18 +62,18 @@ class PannellumVideo extends Component {
     controls:false,
   }
 
-  renderVideo = () =>{
+  renderVideo = (state) =>{
     const { children } = this.props;
     // make the array of sub components, even if its one, it become array of one 
     let hotspots = [...children];
-    console.log(hotspots);
     let hotspotArray = [];
     if (Array.isArray(hotspots)){
       hotspots.map(hotspot =>{
         switch (hotspot.props.type){
 
           case "info":
-            return hotspotArray.push({ 
+            return hotspotArray.push({
+              "id": Math.random().toString(36).substr(2, 9),
               "type":hotspot.props.type,
               "pitch":hotspot.props.pitch ? hotspot.props.pitch : 10,
               "yaw":hotspot.props.yaw ? hotspot.props.yaw : 10,
@@ -88,6 +82,7 @@ class PannellumVideo extends Component {
             });
           case "custom":
             return hotspotArray.push({
+              "id": Math.random().toString(36).substr(2, 9),
               "pitch":hotspot.props.pitch ? hotspot.props.pitch : 10,
               "yaw":hotspot.props.yaw ? hotspot.props.yaw : 10,
               "createTooltipFunc": hotspot.props.Tooltip ? hotspot.props.Tooltip: this.hotspotTooltip,
@@ -103,34 +98,56 @@ class PannellumVideo extends Component {
       });
     }
 
-    this.video = videojs(this.videoNode, {
-      loop:this.props.loop,
-      autoplay:this.props.autoplay,
-      controls:this.props.controls,
-      plugins: {
-        pannellum: {
-          yaw : this.props.yaw,
-          pitch: this.props.pitch,
-          hfov: this.props.hfov,
-          minHfov: this.props.minHfov,
-          maxHfov: this.props.maxHfov,
-          hotSpotDebug: this.props.hotspotDebug,
-          autoRotate:this.props.autoRotate,
-          mouseZoom:this.props.mouseZoom,
-          showZoomCtrl:true,
-          hotSpots: hotspotArray
-        }
-      } 
-    }).src({ type: 'video/mp4', src: this.props.video });
+    if (state === "update"){
+      
+      this.video = videojs(this.videoNode);
+      let cuurentHS = [...this.video.pnlmViewer.getConfig().hotSpots];
+      this.video.pnlmViewer.setYaw(this.props.yaw);
+      this.video.pnlmViewer.setPitch(this.props.pitch);
+      this.video.pnlmViewer.setHfov(this.props.hfov);
+      
+      //remove all hotspots
+      cuurentHS.map( hs => this.video.pnlmViewer.removeHotSpot(hs.id));
+      // Adding new hotspots
+      hotspotArray.map( hs => this.video.pnlmViewer.addHotSpot(hs));
+      // setting new video
+      return this.video.src({ 
+        type: 'video/mp4', 
+        src: this.props.video 
+      });
+
+    } else {
+      this.video = videojs(this.videoNode, {
+        loop:this.props.loop,
+        autoplay:this.props.autoplay,
+        controls:this.props.controls,
+        plugins: {
+          pannellum: {
+            yaw : this.props.yaw,
+            pitch: this.props.pitch,
+            hfov: this.props.hfov,
+            minHfov: this.props.minHfov,
+            maxHfov: this.props.maxHfov,
+            hotSpotDebug: this.props.hotspotDebug,
+            autoRotate:this.props.autoRotate,
+            mouseZoom:this.props.mouseZoom,
+            hotSpots: hotspotArray
+          }
+        } 
+      }).src({ type: 'video/mp4', src: this.props.video });
+    }
   }
 
   componentDidMount = () => {
-    this.renderVideo();    
+    this.renderVideo("mount");    
   }
 
   componentDidUpdate (){
+    // videojs(this.videoNode).dispose();
     // this.videoNode.setAttribute("src", this.props.video );
-    this.renderVideo();  
+    this.renderVideo("update");
+
+
   }
 
   handleClickHotspot = (e , id) => {
@@ -154,9 +171,7 @@ class PannellumVideo extends Component {
   }
 
   componentWillUnmount() {
-    if (this.video) {
-      this.video.dispose();
-    }
+    videojs(this.videoNode).dispose();
   }
   
   render() {

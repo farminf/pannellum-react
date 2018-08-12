@@ -14,15 +14,24 @@ class Demo extends Component {
     this.state ={
       mediaVideo : myVideo2,
       mediaPhoto: myImage,
-      title:"Pannellum React Component"
+      title:"Pannellum React Component",
+      scene: 1
     };
   }
 
   hanldeClick = (path)=>{
-    console.log("go to " + path);
     this.setState({
       mediaVideo : myVideo,
-      title: "ooops"
+      title: "ooops",
+      scene: 2
+    });
+  };
+
+  hanldeClickCheck = (path)=>{
+    this.setState({
+      mediaVideo : myVideo2,
+      title: "oo",
+      scene: 1
     });
   };
 
@@ -120,35 +129,94 @@ class Demo extends Component {
 
         </Pannellum>
         */}
-        <PannellumVideo
-          video={this.state.mediaVideo}
-          loop
-          autoplay
-          width="600px"
-          height="400px"
-          pitch={10}
-          yaw={180}
-          hfov={140}
-          minHfov={50}
-          maxHfov={150}
-          hotSpotDebug
-          mouseZoom={false}
-        >
-          <Pannellum.Hotspot 
-            type="info"
-            pitch={31}
-            yaw={-107}
-            text="Info Hotspot Text 4"
-            URL="https://github.com/farminf"
-          />
-          <Pannellum.Hotspot 
-            type="custom"
-            pitch={31}
-            yaw={150}
-            handleClick={(evt , name) => this.hanldeClick(name)}
-            name="farmin"
-          />
-        </PannellumVideo>
+        
+
+          
+        {this.state.scene === 1 
+          ?
+          ( 
+            <PannellumVideo
+              video={this.state.mediaVideo}
+              loop
+              autoplay
+              width="600px"
+              height="400px"
+              pitch={10}
+              yaw={180}
+              hfov={140}
+              minHfov={50}
+              maxHfov={150}
+              hotSpotDebug
+              mouseZoom={false}
+            >
+              <Pannellum.Hotspot 
+                type="custom"
+                pitch={31}
+                yaw={150}
+                handleClick={(evt , name) => this.hanldeClick(name)}
+                name="farmin"
+              />
+
+              <Pannellum.Hotspot
+                type="info"
+                pitch={31}
+                yaw={-57}
+                text="Info dfsdfs"
+                URL="https://github.com/farminf"
+              />
+
+              <Pannellum.Hotspot
+                type="info"
+                pitch={31}
+                yaw={-107}
+                text="Info  Text 4"
+                URL="https://github.com/farminf"
+              />
+
+              <Pannellum.Hotspot
+                type="info"
+                pitch={31}
+                yaw={-37}
+                text="Info"
+                URL="https://github.com/farminf"
+              />
+            </PannellumVideo>
+          )
+          :
+          (
+            <PannellumVideo
+              video={this.state.mediaVideo}
+              loop
+              autoplay
+              width="600px"
+              height="400px"
+              pitch={10}
+              yaw={180}
+              hfov={140}
+              minHfov={50}
+              maxHfov={150}
+              hotSpotDebug
+              mouseZoom={false}
+            >
+              <Pannellum.Hotspot 
+                type="custom"
+                pitch={10}
+                yaw={120}
+                handleClick={(evt , name) => this.hanldeClickCheck(name)}
+                name="farzin"
+              />
+              <Pannellum.Hotspot
+                type="info"
+                pitch={40}
+                yaw={160}
+                text="Info Hotspot Text 4"
+                URL="https://github.com/farminf"
+              />
+            </PannellumVideo>
+          )}
+
+          
+       
     
       </div>
     );
