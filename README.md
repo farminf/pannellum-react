@@ -32,6 +32,7 @@ import {Pannellum , PannellumVideo} from 'pannellum-react';
 > **Note:** Currently only `equirectangular` type is supported! planning to do also `multires`
 
 > **Note:** `Tours` component currently is not supported but is WIP.
+> **Note:** For having video tours, there is the custum hotspot which can implement the video scene changing using `handleClick`. In fact in can be the tour for videos and photos.
 
 ## Simple Example
 
@@ -90,17 +91,18 @@ const PannellumReact = () => (
       maxHfov={180}
     >
       <Pannellum.Hotspot 
+        type="custom"
+        pitch={31}
+        yaw={150}
+        handleClick={(evt , name) => this.hanldeClick(name)}
+        name="hs1"
+      />
+
+      <Pannellum.Hotspot
         type="info"
         pitch={31}
-        yaw={-107}
-        text="Info Hotspot Text 4"
-        URL="https://github.com/farminf"
-      />
-      <Pannellum.Hotspot 
-        type="info"
-        pitch={11}
-        yaw={180}
-        text="here we go"
+        yaw={-57}
+        text="Info"
         URL="https://github.com/farminf"
       />
     </PannellumVideo>
@@ -159,47 +161,27 @@ pannellum-react has most of the official pannellum properties (not all of them).
 
 **HotSpot API**
 
-It is same as the Pannellum properties , cut and paste from [pannellum refrence page](https://pannellum.org/documentation/reference/)
-``` text
-pitch (number)
-Specifies the pitch portion of the hot spot’s location, in degrees.
+#### Info 
 
-yaw (number)
-Specifies the yaw portion of the hot spot’s location, in degrees.
+| Name  | Type   | Default | Description                              |
+| ----- | ------ | ------- | ---------------------------------------- |
+| type  | String | info    | you should pass it                       |
+| pitch | Number | 0       | the pitch for hotspot                    |
+| yaw   | Number | 0       | the yaw for hotspot                      |
+| text  | String | ""      | on mouse over hotspot shows the text box |
+| URL   | String | ""      | onClick of hotspot opens on new page     |
 
-type (string)
-Specifies the type of the hot spot. Can be scene for scene links or info for information hot spots. A tour configuration file is required for scene hot spots.
+#### Custom
 
-text (string)
-This specifies the text that is displayed when the user hovers over the hot spot.
+| Name        | Type     | Default          | Description                                                               |
+| ----------- | -------- | ---------------- | ------------------------------------------------------------------------- |
+| type        | String   | custom           | you should pass it                                                        |
+| pitch       | Number   | 0                | the pitch for hotspot                                                     |
+| yaw         | Number   | 0                | the yaw for hotspot                                                       |
+| Tooltip     | Function | see demo         | the function pass div element and you can append any shape or html or ... |
+| handleClick | Function | logging the name | fires onclick of hotspot                                                  |
+| name        | String   | noName           | will be passed to handleClick                                             |
 
-URL (string)
-If specified for an info hot spot, the hot spot links to the specified URL. Not applicable for scene hot spots.
-
-sceneId (string)
-Specifies the ID of the scene to link to for scene hot spots. Not applicable for info hot spots.
-
-targetPitch (number)
-Specifies the pitch of the target scene, in degrees. Can also be set to same, which uses the current pitch of the current scene as the initial pitch of the target scene.
-
-targetYaw (number)
-Specifies the yaw of the target scene, in degrees. Can also be set to same or sameAzimuth. These settings use the current yaw of the current scene as the initial yaw of the target scene; same uses the current yaw directly, while sameAzimuth takes into account the northOffset values of both scenes to maintain the same direction with regard to north.
-
-targetHfov (number)
-Specifies the HFOV of the target scene, in degrees.
-
-id
-Specifies hot spot ID, for use with API’s removeHotSpot function.
-
-cssClass (string)
-If specified, string is used as the CSS class for the hot spot instead of the default CSS classes.
-
-createTooltipFunc (function) and createTooltipArgs (object)
-If createTooltipFunc is specified, this function is used to create the hot spot tooltip DOM instead of the default function. The contents of createTooltipArgs are passed to the function as arguments.
-
-clickHandlerFunc (function) and clickHandlerArgs (object)
-If clickHandlerFunc is specified, this function is added as an event handler for the hot spot’s click event. The event object and the contents of clickHandlerArgs are passed to the function as arguments.
-```
 **Video API**
 
 | Name     | Type    | Default | Description                   |

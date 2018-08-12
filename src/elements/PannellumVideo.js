@@ -105,6 +105,7 @@ class PannellumVideo extends Component {
       this.video.pnlmViewer.setYaw(this.props.yaw);
       this.video.pnlmViewer.setPitch(this.props.pitch);
       this.video.pnlmViewer.setHfov(this.props.hfov);
+      this.video.pnlmViewer.setHfovBounds([this.props.minHfov,this.props.maxHfov]);
       
       //remove all hotspots
       cuurentHS.map( hs => this.video.pnlmViewer.removeHotSpot(hs.id));

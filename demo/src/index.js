@@ -192,9 +192,9 @@ class Demo extends Component {
               height="400px"
               pitch={10}
               yaw={180}
-              hfov={140}
-              minHfov={50}
-              maxHfov={150}
+              hfov={110}
+              minHfov={90}
+              maxHfov={120}
               hotSpotDebug
               mouseZoom={false}
             >
