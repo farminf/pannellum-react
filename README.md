@@ -76,11 +76,34 @@ const PannellumReact = () => (
       />
     </Pannellum>
 
-    {/******  for video component *******/}
+    {/******  for video 360 component *******/}
 
     <PannellumVideo
       video={myVideo}
-    />
+      loop
+      width="100%"
+      height="600px"
+      pitch={10}
+      yaw={180}
+      hfov={140}
+      minHfov={50}
+      maxHfov={180}
+    >
+      <Pannellum.Hotspot 
+        type="info"
+        pitch={31}
+        yaw={-107}
+        text="Info Hotspot Text 4"
+        URL="https://github.com/farminf"
+      />
+      <Pannellum.Hotspot 
+        type="info"
+        pitch={11}
+        yaw={180}
+        text="here we go"
+        URL="https://github.com/farminf"
+      />
+    </PannellumVideo>
 
     </div>
 );
@@ -178,11 +201,27 @@ clickHandlerFunc (function) and clickHandlerArgs (object)
 If clickHandlerFunc is specified, this function is added as an event handler for the hot spot’s click event. The event object and the contents of clickHandlerArgs are passed to the function as arguments.
 ```
 **Video API**
-| Name  | Type   | Default | Description            |
-| ----- | ------ | ------- | ---------------------- |
-| video | String | ''      | Path to your 360 video |
 
+| Name     | Type    | Default | Description                   |
+| -------- | ------- | ------- | ----------------------------- |
+| video    | String  | " "     | Path to your 360 video        |
+| loop     | Boolean | false   | Looping over video            |
+| autoplay | Boolean | true    | Play the video as page loaded |
+| controls | Boolean | false   | showing controls under        |
 
+    width: '100%',
+    height: '400px',
+    video:'',
+    yaw : 0,
+    pitch: 0,
+    hfov: 100,
+    minHfov: 50,
+    maxHfov: 150,
+    hotspotDebug: false,
+    autoRotate: 0,
+    mouseZoom: true,
+
+Hotspots
 
 ### Example with all the available props
 
