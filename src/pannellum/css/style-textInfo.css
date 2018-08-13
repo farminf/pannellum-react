@@ -33,6 +33,7 @@
 
 #textInfo .hotspot {
     cursor: pointer;
+    box-sizing: border-box;
 }
 
 #textInfo .hotspot .out:before {
@@ -55,6 +56,7 @@
     -webkit-transition: -webkit-transform ease-out 0.1s, border 0.2s;
     -moz-transition: -moz-transform ease-out 0.1s, border 0.2s;
     transition: transform ease-out 0.1s, border 0.2s;
+    box-sizing: border-box;
 }
 
 #textInfo .hotspot .in {

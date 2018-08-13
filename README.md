@@ -125,39 +125,40 @@ pannellum-react has most of the official pannellum properties (not all of them).
 
 **Props API**
 
-| Name                   | Type     | Default                 | Description                                                                                    |
-| ---------------------- | -------- | ----------------------- | ---------------------------------------------------------------------------------------------- |
-| id                     | String   | Unique Generated String | If you pass it, it will use it for div id, if not it would be unique string for each component |
-| width                  | String   | "100%"                  | The width of the panorama div                                                                  |
-| height                 | String   | "400px"                 | The height of the panorama div                                                                 |
-| image                  | String   | ""                      | The 360 image path                                                                             |
-| yaw                    | Number   | 0                       | Starting yaw position in degrees                                                               |
-| pitch                  | Number   | 0                       | Starting pitch position in degrees                                                             |
-| hfov                   | Number   | 100                     | Starting horizontal field of view in degrees                                                   |
-| maxHfov                | Number   | 150                     | Maximum field of view which user can zoom (in degrees)                                         |
-| minHfov                | Number   | 50                      | Minimum field of view which user can zoom (in degrees)                                         |
-| compass                | Boolean  | false                   | Showing compass if true                                                                        |
-| title                  | String   | ""                      | Displays as the panorama’s title                                                              |
-| author                 | String   | ""                      | Displays as the panorama’s author                                                             |
-| preview                | String   | ""                      | Preview image path to display                                                                  |
-| previewTitle           | String   | ""                      | Preview title to display                                                                       |
-| previewAuthor          | String   | ""                      | Preview Author to display                                                                      |
-| autoLoad               | Boolean  | false                   | Load and dsplay the image automatically if true                                                |
-| orientationOnByDefault | Boolean  | false                   | If true Device orientation will work if device supported                                       |
-| showZoomCtrl           | Boolean  | true                    | The zoom control display on the image                                                          |
-| keyboardZoom           | Boolean  | true                    | Enables zoom control from keyboard if true                                                     |
-| mouseZoom              | Boolean  | true                    | Enables zoom control with mouse if true                                                        |
-| draggable              | Boolean  | true                    | If false, mouse and touch dragging is disabled                                                 |
-| showFullscreenCtrl     | Boolean  | true                    | FullScreen control display                                                                     |
-| showControls           | Boolean  | true                    | if False, no control displays                                                                  |
-| onLoad                 | Function |                         | Callbakc function which fires after loading                                                    |
-| onError                | Function |                         | Callbakc function which fires after error                                                      |
-| onErrorcleared         | Function |                         | Callbakc function which calls after clearing the error                                         |
-| onMousedown            | Function |                         | Callbakc function which calls after mouse button press                                         |
-| onMouseup              | Function |                         | Callbakc function which calls after mouse button release                                       |
-| onTouchstart           | Function |                         | Callbakc function which calls after touch starts                                               |
-| onTouchend             | Function |                         | Callbakc function which calls after touch ends                                                 |
-| hotspotDebug           | Boolean  | false                   | For debug pupose (finding correct point for hotspot)                                           |
+| Name                   | Type     | Default                 | Description                                                                                     |
+| ---------------------- | -------- | ----------------------- | ----------------------------------------------------------------------------------------------- |
+| id                     | String   | Unique Generated String | If you pass it, it will use it for div id, if not it would be unique string for each component  |
+| width                  | String   | "100%"                  | The width of the panorama div                                                                   |
+| height                 | String   | "400px"                 | The height of the panorama div                                                                  |
+| image                  | String   | ""                      | The 360 image path                                                                              |
+| yaw                    | Number   | 0                       | Starting yaw position in degrees                                                                |
+| pitch                  | Number   | 0                       | Starting pitch position in degrees                                                              |
+| hfov                   | Number   | 100                     | Starting horizontal field of view in degrees                                                    |
+| maxHfov                | Number   | 150                     | Maximum field of view which user can zoom (in degrees)                                          |
+| minHfov                | Number   | 50                      | Minimum field of view which user can zoom (in degrees)                                          |
+| autoRotate             | Number   | 0                       | rotation speed in degrees per second. Positive is counter-clockwise, and negative is clockwise. |
+| compass                | Boolean  | false                   | Showing compass if true                                                                         |
+| title                  | String   | ""                      | Displays as the panorama’s title                                                               |
+| author                 | String   | ""                      | Displays as the panorama’s author                                                              |
+| preview                | String   | ""                      | Preview image path to display                                                                   |
+| previewTitle           | String   | ""                      | Preview title to display                                                                        |
+| previewAuthor          | String   | ""                      | Preview Author to display                                                                       |
+| autoLoad               | Boolean  | false                   | Load and dsplay the image automatically if true                                                 |
+| orientationOnByDefault | Boolean  | false                   | If true Device orientation will work if device supported                                        |
+| showZoomCtrl           | Boolean  | true                    | The zoom control display on the image                                                           |
+| keyboardZoom           | Boolean  | true                    | Enables zoom control from keyboard if true                                                      |
+| mouseZoom              | Boolean  | true                    | Enables zoom control with mouse if true                                                         |
+| draggable              | Boolean  | true                    | If false, mouse and touch dragging is disabled                                                  |
+| showFullscreenCtrl     | Boolean  | true                    | FullScreen control display                                                                      |
+| showControls           | Boolean  | true                    | if False, no control displays                                                                   |
+| onLoad                 | Function |                         | Callbakc function which fires after loading                                                     |
+| onError                | Function |                         | Callbakc function which fires after error                                                       |
+| onErrorcleared         | Function |                         | Callbakc function which calls after clearing the error                                          |
+| onMousedown            | Function |                         | Callbakc function which calls after mouse button press                                          |
+| onMouseup              | Function |                         | Callbakc function which calls after mouse button release                                        |
+| onTouchstart           | Function |                         | Callbakc function which calls after touch starts                                                |
+| onTouchend             | Function |                         | Callbakc function which calls after touch ends                                                  |
+| hotspotDebug           | Boolean  | false                   | For debug pupose (finding correct point for hotspot)                                            |
 
 **HotSpot API**
 
@@ -184,6 +185,8 @@ pannellum-react has most of the official pannellum properties (not all of them).
 
 **Video API**
 
+these are videojs configuration properties which can be used
+
 | Name     | Type    | Default | Description                   |
 | -------- | ------- | ------- | ----------------------------- |
 | video    | String  | " "     | Path to your 360 video        |
@@ -191,19 +194,22 @@ pannellum-react has most of the official pannellum properties (not all of them).
 | autoplay | Boolean | true    | Play the video as page loaded |
 | controls | Boolean | false   | showing controls under        |
 
-    width: '100%',
-    height: '400px',
-    video:'',
-    yaw : 0,
-    pitch: 0,
-    hfov: 100,
-    minHfov: 50,
-    maxHfov: 150,
-    hotspotDebug: false,
-    autoRotate: 0,
-    mouseZoom: true,
+in addition there are also pannellum properties(panorama) which works on video
 
-Hotspots
+| Name         | Type    | Default | Description                                                                                     |
+| ------------ | ------- | ------- | ----------------------------------------------------------------------------------------------- |
+| width        | String  | "100%"  | The width of the panorama div                                                                   |
+| height       | String  | "400px" | The height of the panorama div                                                                  |
+| video        | String  | ""      | The 360 video path                                                                              |
+| yaw          | Number  | 0       | Starting yaw position in degrees                                                                |
+| pitch        | Number  | 0       | Starting pitch position in degrees                                                              |
+| hfov         | Number  | 100     | Starting horizontal field of view in degrees                                                    |
+| maxHfov      | Number  | 150     | Maximum field of view which user can zoom (in degrees)                                          |
+| minHfov      | Number  | 50      | Minimum field of view which user can zoom (in degrees)                                          |
+| autoRotate   | Number  | 0       | rotation speed in degrees per second. Positive is counter-clockwise, and negative is clockwise. |
+| mouseZoom    | Boolean | true    | Enables zoom control with mouse if true                                                         |
+| hotspotDebug | Boolean | false   | For debug pupose (finding correct point for hotspot)                                            |
+
 
 ### Example with all the available props
 

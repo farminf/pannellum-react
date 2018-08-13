@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 
 import { Pannellum, PannellumVideo }  from '../../src';
 import myImage from "./images/alma.jpg";
+import myImage2 from "./images/milan.jpg";
 import myVideo from "./images/jfk.mp4";
 import myVideo2 from "./images/video.mp4";
 
@@ -22,6 +23,7 @@ class Demo extends Component {
   hanldeClick = (path)=>{
     this.setState({
       mediaVideo : myVideo,
+      mediaPhoto: myImage2,
       title: "ooops",
       scene: 2
     });
@@ -30,6 +32,7 @@ class Demo extends Component {
   hanldeClickCheck = (path)=>{
     this.setState({
       mediaVideo : myVideo2,
+      mediaPhoto: myImage,
       title: "oo",
       scene: 1
     });
@@ -39,51 +42,11 @@ class Demo extends Component {
     return (
       <div>
         <h1>{this.state.title}</h1>
-        {/*<Pannellum
-          width="700px"
-          height="400px"
-          image={myImage}
-          pitch={10}
-          yaw={180}
-          hfov={110}
-          autoLoad
-          author=""
-          title=""
-          orientationOnByDefault={false}
-          compass
-          draggable
-          keyboardZoom
-          mouseZoom
-          preview=""      
-          previewAuthor=""
-          previewTitle=""
-          showControls
-          showFullscreenCtrl
-          showZoomCtrl
-          onLoad={()=>{console.log("panorama loaded");}}
-          onScenechange={(id)=>{console.log("Scene has change on " + id);}}
-          onScenechangefadedone={()=>{console.log("panorama loaded");}}
-          onError={(err)=>{console.log("Error" , err);}}
-          onErrorcleared={()=>{console.log("Error Cleared");}}
-          onMousedown={(evt)=>{console.log("Mouse Down" , evt);}}
-          onMouseup={(evt)=>{console.log("Mouse Up", evt);}}
-          onTouchstart={(evt)=>{console.log("Touch Start", evt);}}
-          onTouchend={(evt)=>{console.log("Touch End", evt);}}
-          hotspots={[
-            {
-              "pitch": 11,
-              "yaw": -167,
-              "type": "info",
-              "text": "Info Hotspot Text 1",
-              "URL": "https://github.com/farminf/pannellum-react"
-            }
-          ]}
-          hotspotDebug={false}
-        />
+
         <Pannellum
           width="800px"
           height="300px"
-          image={myImage}
+          image={this.state.mediaPhoto}
           pitch={10}
           yaw={180}
           hfov={500}
@@ -120,15 +83,15 @@ class Demo extends Component {
           />
 
           <Pannellum.Hotspot 
-            type="info"
+            type="custom"
             pitch={31}
-            yaw={-107}
-            text="Info Hotspot Text 4"
-            URL="https://github.com/farminf"
+            yaw={150}
+            handleClick={(evt , name) => this.hanldeClick(name)}
+            name="ss"
           />
 
         </Pannellum>
-        */}
+        
         
 
           
