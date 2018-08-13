@@ -20,10 +20,15 @@ class Demo extends Component {
     };
   }
 
+  hanldeClickImage = (path) => {
+    this.setState({
+      mediaPhoto: myImage2,
+    });
+  }
+
   hanldeClick = (path)=>{
     this.setState({
       mediaVideo : myVideo,
-      mediaPhoto: myImage2,
       title: "ooops",
       scene: 2
     });
@@ -32,7 +37,6 @@ class Demo extends Component {
   hanldeClickCheck = (path)=>{
     this.setState({
       mediaVideo : myVideo2,
-      mediaPhoto: myImage,
       title: "oo",
       scene: 1
     });
@@ -86,7 +90,7 @@ class Demo extends Component {
             type="custom"
             pitch={31}
             yaw={150}
-            handleClick={(evt , name) => this.hanldeClick(name)}
+            handleClick={(evt , name) => this.hanldeClickImage(name)}
             name="ss"
           />
 

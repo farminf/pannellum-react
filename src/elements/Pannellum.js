@@ -199,29 +199,6 @@ class Pannellum extends Component {
   }
 
   componentDidMount = () => {
-    // const { children } = this.props;
-    // let hotspotArray = [];
-    // if (Array.isArray(children)){
-    //   children.map(hotspot =>{
-    //     return hotspotArray.push({ 
-    //       "type":hotspot.props.type,
-    //       "pitch":hotspot.props.pitch,
-    //       "yaw":hotspot.props.yaw,
-    //       "text":hotspot.props.text,
-    //       "URL":hotspot.props.URL
-    //     });
-    //   });
-    // } else {
-    //   hotspotArray.push(
-    //     { 
-    //       "type":children.props.type,
-    //       "pitch":children.props.pitch,
-    //       "yaw":children.props.yaw,
-    //       "text":children.props.text,
-    //       "URL":children.props.URL
-    //     }
-    //   );
-    // }
 
     this.renderImage("mount");
 
@@ -229,7 +206,9 @@ class Pannellum extends Component {
 
 
   componentDidUpdate (){
+
     this.renderImage("update");
+    
   }
 
   handleClickHotspot = (e , id) => {

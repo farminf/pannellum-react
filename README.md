@@ -33,6 +33,7 @@ import {Pannellum , PannellumVideo} from 'pannellum-react';
 
 > **Note:** `Tours` component currently is not supported but is WIP.
 > **Note:** For having video tours, there is the custum hotspot which can implement the video scene changing using `handleClick`. In fact in can be the tour for videos and photos.
+> **Note:** You can also create your tour with custom hotspot, by changing the image dynamically.
 
 ## Simple Example
 
@@ -259,8 +260,24 @@ in addition there are also pannellum properties(panorama) which works on video
   onTouchend={evt => {
     console.log("Touch End", evt);
   }}
+>
+  <Pannellum.Hotspot 
+    type="info"
+    pitch={11}
+    yaw={-167}
+    text="Info Hotspot Text"
+    URL="https://github.com/farminf"
+  />
 
-/>
+  <Pannellum.Hotspot 
+    type="custom"
+    pitch={31}
+    yaw={150}
+    handleClick={(evt , name) => console.log(name)}
+    name="custom_name_for_handle_click_arg"
+  />
+
+</Pannellum>
 ```
 
 ## License
