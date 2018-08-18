@@ -124,7 +124,7 @@ WIP
 
 pannellum-react has most of the official pannellum properties (not all of them). It just needed to be passed as props of the `pannellum` component like example above.
 
-**Props API**
+### **Props API**
 
 | Name                   | Type     | Default                 | Description                                                                                     |
 | ---------------------- | -------- | ----------------------- | ----------------------------------------------------------------------------------------------- |
@@ -161,7 +161,9 @@ pannellum-react has most of the official pannellum properties (not all of them).
 | onTouchend             | Function |                         | Callbakc function which calls after touch ends                                                  |
 | hotspotDebug           | Boolean  | false                   | For debug pupose (finding correct point for hotspot)                                            |
 
-**HotSpot API**
+
+************************************************
+### **HotSpot API**
 
 #### Info 
 
@@ -172,6 +174,9 @@ pannellum-react has most of the official pannellum properties (not all of them).
 | yaw   | Number | 0       | the yaw for hotspot                      |
 | text  | String | ""      | on mouse over hotspot shows the text box |
 | URL   | String | ""      | onClick of hotspot opens on new page     |
+
+************************************************
+
 
 #### Custom
 
@@ -185,8 +190,10 @@ pannellum-react has most of the official pannellum properties (not all of them).
 | handleClick    | Function | logging the handleClickArg | (clickHandlerFunc) fires onclick of hotspot                                                   |
 | handleClickArg | Object   | {}                         | (clickHandlerArgs) will be passed to handleClick                                              |
 | cssClass       | String   | tooltipcss                 | String is used as the CSS class for the hot spot                                              |
+************************************************
 
-**Video API**
+
+### **Video API**
 
 these are videojs configuration properties which can be used
 
@@ -212,6 +219,8 @@ in addition there are also pannellum properties(panorama) which works on video
 | autoRotate   | Number  | 0       | rotation speed in degrees per second. Positive is counter-clockwise, and negative is clockwise. |
 | mouseZoom    | Boolean | true    | Enables zoom control with mouse if true                                                         |
 | hotspotDebug | Boolean | false   | For debug pupose (finding correct point for hotspot)                                            |
+************************************************
+
 
 
 ### Example with all the available props
