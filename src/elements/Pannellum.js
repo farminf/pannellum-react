@@ -56,9 +56,12 @@ class Pannellum extends Component {
     onTouchstart: propTypes.func,
     onTouchend: propTypes.func,
     hotspotDebug: propTypes.bool,
-    Tooltip: propTypes.func,
+    tooltip: propTypes.func,
+    tooltipArg: propTypes.object,
     handleClick:propTypes.func,
-    name: propTypes.string
+    handleClickArg: propTypes.object,
+    cssClass: propTypes.string,
+    
   }
 
   static defaultProps = {
@@ -121,11 +124,11 @@ class Pannellum extends Component {
               "id": Math.random().toString(36).substr(2, 9),
               "pitch":hotspot.props.pitch ? hotspot.props.pitch : 10,
               "yaw":hotspot.props.yaw ? hotspot.props.yaw : 10,
-              "createTooltipFunc": hotspot.props.Tooltip ? hotspot.props.Tooltip: this.hotspotTooltip,
-              "cssClass": "tooltipcss",
-              "createTooltipArgs":"",
-              "clickHandlerArgs": hotspot.props.name ? hotspot.props.name : "noName",
-              "clickHandlerFunc": hotspot.props.handleClick ? hotspot.props.handleClick : hotspot.handleClickHotspot,
+              "cssClass": hotspot.props.cssClass ? hotspot.props.cssClass : 'tooltipcss',
+              "createTooltipFunc": hotspot.props.Tooltip ? hotspot.props.Tooltip : this.hotspotTooltip,
+              "createTooltipArgs": hotspot.props.tooltipArg ? hotspot.props.tooltipArg : {},
+              "clickHandlerFunc": hotspot.props.handleClick ? hotspot.props.handleClick : this.handleClickHotspot ,
+              "clickHandlerArgs": hotspot.props.handleClickArg ? hotspot.props.handleClickArg : { name:"test" },
             });
           default:
             return [];
@@ -205,14 +208,14 @@ class Pannellum extends Component {
   }
 
 
-  componentDidUpdate (){
+  componentDidUpdate (prevProps){
 
     this.renderImage("update");
     
   }
 
-  handleClickHotspot = (e , id) => {
-    console.log("hotspot clicked" , id);
+  handleClickHotspot = (e , args) => {
+    console.log("hotspot clicked" , args.name);
   }
 
 

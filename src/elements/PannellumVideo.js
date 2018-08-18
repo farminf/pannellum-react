@@ -39,9 +39,11 @@ class PannellumVideo extends Component {
     loop:propTypes.bool,
     autoplay:propTypes.bool,
     controls:propTypes.bool,
-    Tooltip: propTypes.func,
+    tooltip: propTypes.func,
+    tooltipArg: propTypes.object,
     handleClick:propTypes.func,
-    name: propTypes.string
+    handleClickArg: propTypes.object,
+    cssClass: propTypes.string,
   }
 
   static defaultProps = {
@@ -85,11 +87,11 @@ class PannellumVideo extends Component {
               "id": Math.random().toString(36).substr(2, 9),
               "pitch":hotspot.props.pitch ? hotspot.props.pitch : 10,
               "yaw":hotspot.props.yaw ? hotspot.props.yaw : 10,
-              "createTooltipFunc": hotspot.props.Tooltip ? hotspot.props.Tooltip: this.hotspotTooltip,
-              "cssClass": "tooltipcss",
-              "createTooltipArgs":"",
-              "clickHandlerArgs": hotspot.props.name ? hotspot.props.name : "noName",
-              "clickHandlerFunc": hotspot.props.handleClick ? hotspot.props.handleClick : hotspot.handleClickHotspot,
+              "cssClass": hotspot.props.cssClass ? hotspot.props.cssClass : 'tooltipcss',
+              "createTooltipFunc": hotspot.props.Tooltip ? hotspot.props.Tooltip : this.hotspotTooltip,
+              "createTooltipArgs": hotspot.props.tooltipArg ? hotspot.props.tooltipArg : {},
+              "clickHandlerFunc": hotspot.props.handleClick ? hotspot.props.handleClick : this.handleClickHotspot ,
+              "clickHandlerArgs": hotspot.props.handleClickArg ? hotspot.props.handleClickArg : { name:"test" },
             });
           default:
             return [];
@@ -143,7 +145,7 @@ class PannellumVideo extends Component {
     this.renderVideo("mount");    
   }
 
-  componentDidUpdate (){
+  componentDidUpdate (prevProps){
     // videojs(this.videoNode).dispose();
     // this.videoNode.setAttribute("src", this.props.video );
     this.renderVideo("update");
@@ -151,8 +153,8 @@ class PannellumVideo extends Component {
 
   }
 
-  handleClickHotspot = (e , id) => {
-    console.log("hotspot clicked" , id);
+  handleClickHotspot = (e , args) => {
+    console.log("hotspot clicked" , args.name);
   }
 
 

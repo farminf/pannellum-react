@@ -20,13 +20,16 @@ class Demo extends Component {
     };
   }
 
-  hanldeClickImage = (path) => {
+  hanldeClickImage = (evt , args) => {
+    console.log(args.name);
     this.setState({
       mediaPhoto: myImage2,
     });
+    
   }
 
   hanldeClick = (path)=>{
+    console.log(path);
     this.setState({
       mediaVideo : myVideo,
       title: "ooops",
@@ -35,6 +38,7 @@ class Demo extends Component {
   };
 
   hanldeClickCheck = (path)=>{
+    console.log(path);
     this.setState({
       mediaVideo : myVideo2,
       title: "oo",
@@ -90,8 +94,8 @@ class Demo extends Component {
             type="custom"
             pitch={31}
             yaw={150}
-            handleClick={(evt , name) => this.hanldeClickImage(name)}
-            name="ss"
+            handleClick={(evt , args) => this.hanldeClickImage(evt , args)}
+            handleClickArg={{ "name":"test" }}
           />
 
         </Pannellum>
@@ -120,8 +124,8 @@ class Demo extends Component {
                 type="custom"
                 pitch={31}
                 yaw={150}
-                handleClick={(evt , name) => this.hanldeClick(name)}
-                name="farmin"
+                handleClick={(evt , args) => this.hanldeClick(args.name)}
+                handleClickArg={{ name : "video2" }}
               />
 
               <Pannellum.Hotspot
@@ -169,8 +173,8 @@ class Demo extends Component {
                 type="custom"
                 pitch={10}
                 yaw={120}
-                handleClick={(evt , name) => this.hanldeClickCheck(name)}
-                name="farzin"
+                handleClick={(evt , args) => this.hanldeClickCheck(args.name)}
+                handleClickArg={{ name : "video1" }}
               />
               <Pannellum.Hotspot
                 type="info"
@@ -183,7 +187,7 @@ class Demo extends Component {
           )}
 
           
-       
+        
     
       </div>
     );
