@@ -175,14 +175,16 @@ pannellum-react has most of the official pannellum properties (not all of them).
 
 #### Custom
 
-| Name        | Type     | Default          | Description                                                               |
-| ----------- | -------- | ---------------- | ------------------------------------------------------------------------- |
-| type        | String   | custom           | you should pass it                                                        |
-| pitch       | Number   | 0                | the pitch for hotspot                                                     |
-| yaw         | Number   | 0                | the yaw for hotspot                                                       |
-| Tooltip     | Function | see demo         | the function pass div element and you can append any shape or html or ... |
-| handleClick | Function | logging the name | fires onclick of hotspot                                                  |
-| name        | String   | noName           | will be passed to handleClick                                             |
+| Name           | Type     | Default                    | Description                                                                                   |
+| -------------- | -------- | -------------------------- | --------------------------------------------------------------------------------------------- |
+| type           | String   | custom                     | you should pass it                                                                            |
+| pitch          | Number   | 0                          | the pitch for hotspot                                                                         |
+| yaw            | Number   | 0                          | the yaw for hotspot                                                                           |
+| tooltip        | Function | see demo                   | (createTooltipFunc) the function pass div element and you can append any shape or html or ... |
+| tooltipArg     | Object   | {}                         | (createTooltipArgs) will be passed to handleClick                                             |
+| handleClick    | Function | logging the handleClickArg | (clickHandlerFunc) fires onclick of hotspot                                                   |
+| handleClickArg | Object   | {}                         | (clickHandlerArgs) will be passed to handleClick                                              |
+| cssClass       | String   | tooltipcss                 | String is used as the CSS class for the hot spot                                              |
 
 **Video API**
 
@@ -273,8 +275,9 @@ in addition there are also pannellum properties(panorama) which works on video
     type="custom"
     pitch={31}
     yaw={150}
-    handleClick={(evt , name) => console.log(name)}
-    name="custom_name_for_handle_click_arg"
+    handleClick={(evt , args) => console.log(args.name)}
+    handleClickArg={{ "name":"test" }}
+    {/* there are 3 other props. see the custom hotspot doc above*/}
   />
 
 </Pannellum>
