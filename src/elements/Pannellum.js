@@ -125,7 +125,7 @@ class Pannellum extends Component {
               "pitch":hotspot.props.pitch ? hotspot.props.pitch : 10,
               "yaw":hotspot.props.yaw ? hotspot.props.yaw : 10,
               "cssClass": hotspot.props.cssClass ? hotspot.props.cssClass : 'tooltipcss',
-              "createTooltipFunc": hotspot.props.Tooltip ? hotspot.props.Tooltip : this.hotspotTooltip,
+              "createTooltipFunc": hotspot.props.tooltip ? hotspot.props.tooltip : this.hotspotTooltip,
               "createTooltipArgs": hotspot.props.tooltipArg ? hotspot.props.tooltipArg : {},
               "clickHandlerFunc": hotspot.props.handleClick ? hotspot.props.handleClick : this.handleClickHotspot ,
               "clickHandlerArgs": hotspot.props.handleClickArg ? hotspot.props.handleClickArg : { name:"test" },
