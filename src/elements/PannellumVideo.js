@@ -116,11 +116,11 @@ class PannellumVideo extends Component {
       // Adding new hotspots
       hotspotArray.map( hs => this.video.pnlmViewer.addHotSpot(hs));
       // setting new video
-      return this.video.src({ 
+      this.video.src({ 
         type: 'video/mp4', 
         src: this.props.video 
       });
-
+      return this.video.play();
     } else {
       this.video = videojs(this.videoNode, {
         loop:this.props.loop,

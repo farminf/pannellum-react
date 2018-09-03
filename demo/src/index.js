@@ -13,7 +13,7 @@ class Demo extends Component {
   constructor(props){
     super(props);
     this.state ={
-      mediaVideo : myVideo,
+      mediaVideo : myVideo2,
       mediaPhoto: myImage,
       title:"Pannellum React Component",
       scene: 1
