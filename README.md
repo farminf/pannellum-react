@@ -203,6 +203,7 @@ these are videojs configuration properties which can be used
 | loop     | Boolean | false   | Looping over video            |
 | autoplay | Boolean | true    | Play the video as page loaded |
 | controls | Boolean | false   | showing controls under        |
+| muted    | Boolean | true    | making video mute             |
 
 in addition there are also pannellum properties(panorama) which works on video
 
@@ -219,6 +220,9 @@ in addition there are also pannellum properties(panorama) which works on video
 | autoRotate   | Number  | 0       | rotation speed in degrees per second. Positive is counter-clockwise, and negative is clockwise. |
 | mouseZoom    | Boolean | true    | Enables zoom control with mouse if true                                                         |
 | hotspotDebug | Boolean | false   | For debug pupose (finding correct point for hotspot)                                            |
+
+
+> if you are using chrome, try to keep muted true for autoplay.
 ************************************************
 
 
