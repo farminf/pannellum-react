@@ -39,6 +39,7 @@ class PannellumVideo extends Component {
     loop:propTypes.bool,
     autoplay:propTypes.bool,
     controls:propTypes.bool,
+    muted:propTypes.bool,
     tooltip: propTypes.func,
     tooltipArg: propTypes.object,
     handleClick:propTypes.func,
@@ -62,6 +63,7 @@ class PannellumVideo extends Component {
     loop:false,
     autoplay:true,
     controls:false,
+    muted: true
   }
 
   renderVideo = (state) =>{
@@ -124,6 +126,7 @@ class PannellumVideo extends Component {
         loop:this.props.loop,
         autoplay:this.props.autoplay,
         controls:this.props.controls,
+        muted: this.props.muted,
         plugins: {
           pannellum: {
             yaw : this.props.yaw,
@@ -137,7 +140,9 @@ class PannellumVideo extends Component {
             hotSpots: hotspotArray
           }
         } 
-      }).src({ type: 'video/mp4', src: this.props.video });
+      });
+      this.video.src({ type: 'video/mp4', src: this.props.video });
+      this.video.play();
     }
   }
 
