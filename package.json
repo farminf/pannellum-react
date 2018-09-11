@@ -16,7 +16,8 @@
     "start": "nwb serve-react-demo",
     "test": "nwb test-react",
     "test:coverage": "nwb test-react --coverage",
-    "test:watch": "nwb test-react --server"
+    "test:watch": "nwb test-react --server",
+    "deploy": "gh-pages -d demo/dist"
   },
   "dependencies": {
     "video.js": "^7.1.0"
@@ -27,6 +28,7 @@
   "devDependencies": {
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "gh-pages": "^1.2.0",
     "nwb": "0.21.x",
     "react": "^16.4.1",
     "react-dom": "^16.4.1"
