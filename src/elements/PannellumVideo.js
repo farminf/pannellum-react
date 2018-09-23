@@ -182,6 +182,10 @@ class PannellumVideo extends Component {
     videojs(this.videoNode).dispose();
   }
   
+  getViewer = () => {
+    return this.video.pnlmViewer
+  }
+
   render() {
     let { width, height, video, ...props } = this.props;
     let divStyle = {
