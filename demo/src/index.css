@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #e0e0e012;
+    text-align: center;
+    height: 100%;
+}
+
+#demo {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.app {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.header {
+    width: 100%;
+    height: 60px;
+    color: white;
+    background-color: #54555f;
+    padding: 16px 16px;
+
+}
+
+.main-header>div {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.main-header__brand {
+    vertical-align: middle;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.image_main {
+    padding: 0px 20px 60px 20px;
+    margin: 40px;
+    border: 1px solid #d6d1c9;
+    border-radius: 3px;
+    background-color: #efefef
+}
+
+.video_main {
+    padding: 0px 20px 60px 20px;
+    margin: 40px;
+    border: 1px solid #d6d1c9;
+    border-radius: 3px;
+    background-color: #efefef
+}
+
+.section_title {
+    color: #757575;
+}
+
+.pannellum_div {
+    display: flex;
+    flex-direction: row;
+}
+
+.codebox {
+    width: 600px;
+    text-align: left;
+    padding: 0px;
+    font-family: Courier, sans-serif;
+    font-size: 13px;
+    color: #fff;
+    background-color: #3d3d3d;
+    -webkit-border-radius: 0px 0px 6px 6px;
+    -moz-border-radius: 0px 0px 6px 6px;
+    border-radius: 6px 6px 6px 6px;
+    margin-left: 30px;
+}

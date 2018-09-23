@@ -137,8 +137,6 @@ class Pannellum extends Component {
       });
     }
 
-    
-
     let jsonConfig = {
       type: "equirectangular",
       panorama: this.props.image,
@@ -170,54 +168,44 @@ class Pannellum extends Component {
     
     if (state === "update"){
 
-      this.state.renderer.destroy();
-      let p = pannellum.viewer(this.props.id ? this.props.id : this.state.id, jsonConfig);
-
-      p.on("load" , this.props.onLoad);
-      p.on("scenechange" , this.props.onScenechange);
-      p.on("scenechangefadedone" , this.props.onScenechangefadedone);
-      p.on("error" , this.props.onError);
-      p.on("errorcleared" , this.props.onErrorcleared);
-      p.on("mousedown" , this.props.onMousedown);
-      p.on("mouseup" , this.props.onMouseup);
-      p.on("touchstart" , this.props.onTouchstart);
-      p.on("touchend" , this.props.onTouchend);
+      this.panorama.destroy()
+      this.panorama = pannellum.viewer(this.props.id ? this.props.id : this.state.id, jsonConfig);
+      this.panorama.on("load" , this.props.onLoad);
+      this.panorama.on("scenechange" , this.props.onScenechange);
+      this.panorama.on("scenechangefadedone" , this.props.onScenechangefadedone);
+      this.panorama.on("error" , this.props.onError);
+      this.panorama.on("errorcleared" , this.props.onErrorcleared);
+      this.panorama.on("mousedown" , this.props.onMousedown);
+      this.panorama.on("mouseup" , this.props.onMouseup);
+      this.panorama.on("touchstart" , this.props.onTouchstart);
+      this.panorama.on("touchend" , this.props.onTouchend);
 
     } else {
-      const panorama = pannellum.viewer(this.props.id ? this.props.id : this.state.id, jsonConfig);
-      this.setState({
-        renderer: panorama
-      });
-      panorama.on("load" , this.props.onLoad);
-      panorama.on("scenechange" , this.props.onScenechange);
-      panorama.on("scenechangefadedone" , this.props.onScenechangefadedone);
-      panorama.on("error" , this.props.onError);
-      panorama.on("errorcleared" , this.props.onErrorcleared);
-      panorama.on("mousedown" , this.props.onMousedown);
-      panorama.on("mouseup" , this.props.onMouseup);
-      panorama.on("touchstart" , this.props.onTouchstart);
-      panorama.on("touchend" , this.props.onTouchend);
-    }
-    
+      this.panorama = pannellum.viewer(this.props.id ? this.props.id : this.state.id, jsonConfig);
+
+      this.panorama.on("load" , this.props.onLoad);
+      this.panorama.on("scenechange" , this.props.onScenechange);
+      this.panorama.on("scenechangefadedone" , this.props.onScenechangefadedone);
+      this.panorama.on("error" , this.props.onError);
+      this.panorama.on("errorcleared" , this.props.onErrorcleared);
+      this.panorama.on("mousedown" , this.props.onMousedown);
+      this.panorama.on("mouseup" , this.props.onMouseup);
+      this.panorama.on("touchstart" , this.props.onTouchstart);
+      this.panorama.on("touchend" , this.props.onTouchend);
+    } 
   }
 
   componentDidMount = () => {
-
     this.renderImage("mount");
-
   }
 
-
   componentDidUpdate (prevProps){
-
     this.renderImage("update");
-    
   }
 
   handleClickHotspot = (e , args) => {
     console.log("hotspot clicked" , args.name);
   }
-
 
   hotspotTooltip = (hotSpotDiv, args) => {
     hotSpotDiv.setAttribute("id", "textInfo");
@@ -234,6 +222,9 @@ class Pannellum extends Component {
     hDiv.appendChild(outDiv);
   }
 
+  getViewer = () => {
+    return this.panorama
+  }
 
   render() {
     let { width, height, ...props } = this.props;

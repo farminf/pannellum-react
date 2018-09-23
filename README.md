@@ -26,7 +26,7 @@ npm install pannellum-react --save
 Import pannellum-react in your react component file by
 
 ```js
-import {Pannellum , PannellumVideo} from 'pannellum-react';
+import { Pannellum, PannellumVideo } from "pannellum-react";
 ```
 
 > **Note:** Currently only `equirectangular` type is supported! planning to do also `multires`
@@ -61,7 +61,7 @@ const PannellumReact = () => (
             console.log("panorama loaded");
         }}
     >
-      <Pannellum.Hotspot 
+      <Pannellum.Hotspot
         type="info"
         pitch={11}
         yaw={-167}
@@ -69,7 +69,7 @@ const PannellumReact = () => (
         URL="https://github.com/farminf"
       />
 
-      <Pannellum.Hotspot 
+      <Pannellum.Hotspot
         type="info"
         pitch={31}
         yaw={-107}
@@ -91,7 +91,7 @@ const PannellumReact = () => (
       minHfov={50}
       maxHfov={180}
     >
-      <Pannellum.Hotspot 
+      <Pannellum.Hotspot
         type="custom"
         pitch={31}
         yaw={150}
@@ -114,15 +114,13 @@ const PannellumReact = () => (
 export default PannellumReact;
 ```
 
-
-
 ## Demo
 
 WIP
 
 ## API
 
-pannellum-react has most of the official pannellum properties (not all of them). It just needed to be passed as props of the `pannellum` component like example above.
+pannellum-react has most of the official pannellum properties (not all of them). It just needed to be passed as props of the `pannellum` component like example above.on
 
 ### **Props API**
 
@@ -139,8 +137,8 @@ pannellum-react has most of the official pannellum properties (not all of them).
 | minHfov                | Number   | 50                      | Minimum field of view which user can zoom (in degrees)                                          |
 | autoRotate             | Number   | 0                       | rotation speed in degrees per second. Positive is counter-clockwise, and negative is clockwise. |
 | compass                | Boolean  | false                   | Showing compass if true                                                                         |
-| title                  | String   | ""                      | Displays as the panorama’s title                                                               |
-| author                 | String   | ""                      | Displays as the panorama’s author                                                              |
+| title                  | String   | ""                      | Displays as the panorama’s title                                                                |
+| author                 | String   | ""                      | Displays as the panorama’s author                                                               |
 | preview                | String   | ""                      | Preview image path to display                                                                   |
 | previewTitle           | String   | ""                      | Preview title to display                                                                        |
 | previewAuthor          | String   | ""                      | Preview Author to display                                                                       |
@@ -161,11 +159,17 @@ pannellum-react has most of the official pannellum properties (not all of them).
 | onTouchend             | Function |                         | Callbakc function which calls after touch ends                                                  |
 | hotspotDebug           | Boolean  | false                   | For debug pupose (finding correct point for hotspot)                                            |
 
+Additionally, by Getting refrence of the component, you can get the pannellum **Viewer** calling `getViewer()` which gives all the available functions of the viewer such as `getPitch`, `setPitch` , `getyaw` and etc. find [here](https://pannellum.org/documentation/api/#viewer)
 
-************************************************
+> example `this.PanImage.current.getViewer().getPitch()`, PanImage is ref of the component.
+
+> This is working also for the video component
+
+---
+
 ### **HotSpot API**
 
-#### Info 
+#### Info
 
 | Name  | Type   | Default | Description                              |
 | ----- | ------ | ------- | ---------------------------------------- |
@@ -175,8 +179,7 @@ pannellum-react has most of the official pannellum properties (not all of them).
 | text  | String | ""      | on mouse over hotspot shows the text box |
 | URL   | String | ""      | onClick of hotspot opens on new page     |
 
-************************************************
-
+---
 
 #### Custom
 
@@ -190,8 +193,8 @@ pannellum-react has most of the official pannellum properties (not all of them).
 | handleClick    | Function | logging the handleClickArg | (clickHandlerFunc) fires onclick of hotspot                                                   |
 | handleClickArg | Object   | {}                         | (clickHandlerArgs) will be passed to handleClick                                              |
 | cssClass       | String   | tooltipcss                 | String is used as the CSS class for the hot spot                                              |
-************************************************
 
+---
 
 ### **Video API**
 
@@ -221,11 +224,9 @@ in addition there are also pannellum properties(panorama) which works on video
 | mouseZoom    | Boolean | true    | Enables zoom control with mouse if true                                                         |
 | hotspotDebug | Boolean | false   | For debug pupose (finding correct point for hotspot)                                            |
 
-
 > if you are using chrome, try to keep muted true for autoplay.
-************************************************
 
-
+---
 
 ### Example with all the available props
 
@@ -276,7 +277,7 @@ in addition there are also pannellum properties(panorama) which works on video
     console.log("Touch End", evt);
   }}
 >
-  <Pannellum.Hotspot 
+  <Pannellum.Hotspot
     type="info"
     pitch={11}
     yaw={-167}
@@ -284,7 +285,7 @@ in addition there are also pannellum properties(panorama) which works on video
     URL="https://github.com/farminf"
   />
 
-  <Pannellum.Hotspot 
+  <Pannellum.Hotspot
     type="custom"
     pitch={31}
     yaw={150}
