@@ -31,6 +31,10 @@ class Pannellum extends Component {
     hfov: propTypes.number,
     minHfov: propTypes.number,
     maxHfov: propTypes.number,
+    minPitch: propTypes.number,
+    maxPitch: propTypes.number,
+    minYaw: propTypes.number,
+    maxYaw: propTypes.number,
     autoRotate: propTypes.number,
     compass: propTypes.bool,
     preview: propTypes.string,
@@ -74,6 +78,10 @@ class Pannellum extends Component {
     hfov: 100,
     minHfov: 50,
     maxHfov: 150,
+    minPitch: -90,
+    maxPitch: 90,
+    minYaw: -180,
+    maxYaw: 180,
     autoRotate: 0,
     compass: false,
     preview: '',
@@ -145,6 +153,10 @@ class Pannellum extends Component {
       hfov: this.props.hfov,
       minHfov: this.props.minHfov,
       maxHfov: this.props.maxHfov,
+      minPitch: this.props.minPitch,
+      maxPitch: this.props.maxPitch,
+      minYaw: this.props.minYaw,
+      maxYaw: this.props.maxYaw,
       autoRotate: this.props.autoRotate,
       compass: this.props.compass,
       preview: this.props.preview,
@@ -168,7 +180,7 @@ class Pannellum extends Component {
     
     if (state === "update"){
 
-      this.panorama.destroy()
+      this.panorama.destroy();
       this.panorama = pannellum.viewer(this.props.id ? this.props.id : this.state.id, jsonConfig);
       this.panorama.on("load" , this.props.onLoad);
       this.panorama.on("scenechange" , this.props.onScenechange);
