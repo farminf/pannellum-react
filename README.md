@@ -135,6 +135,10 @@ pannellum-react has most of the official pannellum properties (not all of them).
 | hfov                   | Number   | 100                     | Starting horizontal field of view in degrees                                                    |
 | maxHfov                | Number   | 150                     | Maximum field of view which user can zoom (in degrees)                                          |
 | minHfov                | Number   | 50                      | Minimum field of view which user can zoom (in degrees)                                          |
+| maxPitch               | Number   | 90                      | Maximum field of view pitch (in degrees)                                          				|
+| minPitch               | Number   | -90                     | Minimum field of view pitch (in degrees)                                          				|
+| maxYaw                 | Number   | 180                     | Maximum field of view yaw (in degrees)                                          				|
+| minYaw                 | Number   | -180                    | Minimum field of view yaw (in degrees)                                          				|
 | autoRotate             | Number   | 0                       | rotation speed in degrees per second. Positive is counter-clockwise, and negative is clockwise. |
 | compass                | Boolean  | false                   | Showing compass if true                                                                         |
 | title                  | String   | ""                      | Displays as the panorama’s title                                                                |
