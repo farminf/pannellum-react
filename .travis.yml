@@ -11,10 +11,11 @@ before_deploy:
   - echo "before deploy..."
   - npm install
   - npm run build -- --copy-files
+  # - npm version patch
 deploy:
   provider: npm
   email: farmin.f@gmail.com
-  tag: next
+  # tag: next
   skip_cleanup: true
   on:
     branch: master
