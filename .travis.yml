@@ -8,9 +8,8 @@ after_success:
   - cat ./coverage/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 before_deploy:
-  - "before deploy..."
+  - echo "before deploy..."
   - npm install
-  - npm test
   - npm build -- --copy-files
 deploy:
   provider: npm
