@@ -235,11 +235,11 @@ class Pannellum extends Component {
   }
 
   getViewer = () => {
-    return this.panorama
+    return this.panorama;
   }
 
   render() {
-    let { width, height, ...props } = this.props;
+    let { width, height } = this.props;
     let divStyle = {
       width : width,
       height : height

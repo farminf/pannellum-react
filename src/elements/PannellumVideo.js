@@ -33,6 +33,10 @@ class PannellumVideo extends Component {
     hfov: propTypes.number,
     minHfov: propTypes.number,
     maxHfov: propTypes.number,
+    minPitch: propTypes.number,
+    maxPitch: propTypes.number,
+    minYaw: propTypes.number,
+    maxYaw: propTypes.number,
     hotspotDebug: propTypes.bool,
     autoRotate: propTypes.number,
     mouseZoom: propTypes.bool,
@@ -57,6 +61,10 @@ class PannellumVideo extends Component {
     hfov: 100,
     minHfov: 50,
     maxHfov: 150,
+    minPitch: -90,
+    maxPitch: 90,
+    minYaw: -180,
+    maxYaw: 180,
     hotspotDebug: false,
     autoRotate: 0,
     mouseZoom: true,
@@ -134,6 +142,10 @@ class PannellumVideo extends Component {
             hfov: this.props.hfov,
             minHfov: this.props.minHfov,
             maxHfov: this.props.maxHfov,
+            minPitch: this.props.minPitch,
+            maxPitch: this.props.maxPitch,
+            minYaw: this.props.minYaw,
+            maxYaw: this.props.maxYaw,
             hotSpotDebug: this.props.hotspotDebug,
             autoRotate:this.props.autoRotate,
             mouseZoom:this.props.mouseZoom,
@@ -183,11 +195,11 @@ class PannellumVideo extends Component {
   }
   
   getViewer = () => {
-    return this.video.pnlmViewer
+    return this.video.pnlmViewer;
   }
 
   render() {
-    let { width, height, video, ...props } = this.props;
+    let { width, height, video } = this.props;
     let divStyle = {
       width : width,
       height : height
