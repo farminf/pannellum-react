@@ -10,7 +10,7 @@ after_success:
 before_deploy:
   - echo "before deploy..."
   - npm install
-  - npm build -- --copy-files
+  - npm run build -- --copy-files
 deploy:
   provider: npm
   email: farmin.f@gmail.com
