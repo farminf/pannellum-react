@@ -116,7 +116,7 @@ export default PannellumReact;
 
 ## Demo
 
-WIP
+https://farminf.github.io/pannellum-react/
 
 ## API
 
