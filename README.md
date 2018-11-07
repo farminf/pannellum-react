@@ -35,6 +35,14 @@ import { Pannellum, PannellumVideo } from "pannellum-react";
 > **Note:** For having video tours, there is the custum hotspot which can implement the video scene changing using `handleClick`. In fact in can be the tour for videos and photos.
 > **Note:** You can also create your tour with custom hotspot, by changing the image dynamically.
 
+## Demo
+
+https://farminf.github.io/pannellum-react/
+
+you can also use codesandbox playground
+
+[![Edit q27rq5p6](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/q27rq5p6)
+
 ## Simple Example
 
 ```JavaScript
@@ -113,10 +121,6 @@ const PannellumReact = () => (
 
 export default PannellumReact;
 ```
-
-## Demo
-
-https://farminf.github.io/pannellum-react/
 
 ## API
 
