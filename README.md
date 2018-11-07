@@ -118,6 +118,10 @@ export default PannellumReact;
 
 https://farminf.github.io/pannellum-react/
 
+you can also using codesandbox playground
+
+[![Edit q27rq5p6](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/q27rq5p6)
+
 ## API
 
 pannellum-react has most of the official pannellum properties (not all of them). It just needed to be passed as props of the `pannellum` component like example above.on
