@@ -1,6 +1,6 @@
 {
   "name": "pannellum-react",
-  "version": "0.2.8",
+  "version": "1.0.0",
   "description": "Pannellum React Component",
   "main": "lib/index.js",
   "module": "es/index.js",
