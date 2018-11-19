@@ -11,6 +11,7 @@ export default class ImageDemo extends Component {
     this.state ={
       mediaPhoto: myImage,
     };
+    this.ref = React.createRef();
   }
     
     hanldeClickImage = (evt , args) => {
@@ -30,6 +31,7 @@ export default class ImageDemo extends Component {
           <h2 className="section_title">Image Component</h2>
           <div className="pannellum_div" >
             <Pannellum
+              ref={this.ref}
               width="800px"
               height="400px"
               image={this.state.mediaPhoto}
