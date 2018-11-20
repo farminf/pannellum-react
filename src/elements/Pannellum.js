@@ -1,5 +1,5 @@
 import propTypes from 'prop-types';
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import '../pannellum/css/pannellum.css';
 import '../pannellum/css/style-textInfo.css';
 
@@ -8,7 +8,7 @@ import '../pannellum/js/pannellum.js';
 import '../pannellum/js/RequestAnimationFrame';
 
 
-class Pannellum extends Component {
+class Pannellum extends PureComponent {
 
   constructor(props){
     super(props);
@@ -177,6 +177,7 @@ class Pannellum extends Component {
     };
   
     Object.keys(jsonConfig).forEach((key) => (jsonConfig[key] === "") && delete jsonConfig[key]);
+    // this.setState({ jsonConfig });
     
     if (state === "update"){
 
@@ -211,9 +212,18 @@ class Pannellum extends Component {
     this.renderImage("mount");
   }
 
-  componentDidUpdate (prevProps){
-    this.renderImage("update");
+  componentDidUpdate (prevProps, prevState, snapshot){
+    if (prevProps.image !== this.props.image) {
+      this.renderImage("update");
+    }
+    if (prevProps.yaw !== this.props.yaw) {
+      // this.panorama.setYaw(this.props.yaw);
+      this.renderImage("update");
+    }
   }
+
+
+  
 
   handleClickHotspot = (e , args) => {
     console.log("hotspot clicked" , args.name);

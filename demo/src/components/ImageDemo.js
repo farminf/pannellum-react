@@ -10,6 +10,8 @@ export default class ImageDemo extends Component {
     super(props);
     this.state ={
       mediaPhoto: myImage,
+      yaww : 180,
+      test:false
     };
     this.ref = React.createRef();
   }
@@ -27,7 +29,16 @@ export default class ImageDemo extends Component {
     render() {
       return (
         <div className="image_main">
-        
+          <div style={{ display:"flex", flexDirection:"row" }}>
+            <button
+              onClick={()=> {
+                this.setState({ test:true , yaww : 100 });
+              }}
+            > enable </button>
+            <div>
+              {this.state.test && <button onClick={()=> this.setState({ test:false })}> disable </button>}
+            </div>
+          </div>
           <h2 className="section_title">Image Component</h2>
           <div className="pannellum_div" >
             <Pannellum
@@ -36,31 +47,9 @@ export default class ImageDemo extends Component {
               height="400px"
               image={this.state.mediaPhoto}
               pitch={10}
-              yaw={180}
+              yaw={this.state.yaww}
               hfov={120}
               autoLoad
-              author=""
-              title=""
-              orientationOnByDefault={false}
-              draggable
-              keyboardZoom
-              mouseZoom
-              preview=""      
-              previewAuthor=""
-              previewTitle=""
-              showControls
-              showFullscreenCtrl
-              showZoomCtrl
-              onLoad={()=>{console.log("panorama loaded");}}
-              onScenechange={(id)=>{console.log("Scene has change on " + id);}}
-              onScenechangefadedone={()=>{console.log("panorama loaded");}}
-              onError={(err)=>{console.log("Error" , err);}}
-              onErrorcleared={()=>{console.log("Error Cleared");}}
-              onMousedown={(evt)=>{console.log("Mouse Down" , evt);}}
-              onMouseup={(evt)=>{console.log("Mouse Up", evt);}}
-              onTouchstart={(evt)=>{console.log("Touch Start", evt);}}
-              onTouchend={(evt)=>{console.log("Touch End", evt);}}
-              hotspotDebug={false}
             >
               <Pannellum.Hotspot 
                 type="info"
@@ -79,6 +68,7 @@ export default class ImageDemo extends Component {
               />
 
             </Pannellum>
+            
             <div className="codebox">
               <pre>
                 <code data-language="xml">
