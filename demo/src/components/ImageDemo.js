@@ -11,7 +11,9 @@ export default class ImageDemo extends Component {
     this.state ={
       mediaPhoto: myImage,
       yaww : 180,
-      test:false
+      test:false,
+      updateText: "initial",
+      author: "author"
     };
     this.ref = React.createRef();
   }
@@ -23,6 +25,14 @@ export default class ImageDemo extends Component {
       });
 
     }
+
+    handleClick = () => {
+      this.setState({
+        mediaPhoto: myImage2,
+        test:false
+      });
+
+    }
     
 
 
@@ -30,13 +40,17 @@ export default class ImageDemo extends Component {
       return (
         <div className="image_main">
           <div style={{ display:"flex", flexDirection:"row" }}>
+            <button onClick={()=> this.setState((prevState) => ({ author: "change" }))}> change author </button>
+            <button onClick={()=> this.setState((prevState) => ({ yaww: prevState.yaww + 10 }))}> change yaw </button>
+            <button onClick={()=> this.setState({ updateText: "after update" })}> Should not update </button>
+            <h3>{this.state.updateText}</h3>
             <button
               onClick={()=> {
-                this.setState({ test:true , yaww : 100 });
+                this.setState({ test:true , yaww : 100 , mediaPhoto: myImage });
               }}
             > enable </button>
             <div>
-              {this.state.test && <button onClick={()=> this.setState({ test:false })}> disable </button>}
+              {this.state.test && <button onClick={this.handleClick}> disable </button>}
             </div>
           </div>
           <h2 className="section_title">Image Component</h2>
@@ -50,6 +64,8 @@ export default class ImageDemo extends Component {
               yaw={this.state.yaww}
               hfov={120}
               autoLoad
+              author={this.state.author}
+              title=""
             >
               <Pannellum.Hotspot 
                 type="info"
