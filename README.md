@@ -34,6 +34,7 @@ import { Pannellum, PannellumVideo } from "pannellum-react";
 > **Note:** `Tours` component currently is not supported but is WIP.
 > **Note:** For having video tours, there is the custum hotspot which can implement the video scene changing using `handleClick`. In fact in can be the tour for videos and photos.
 > **Note:** You can also create your tour with custom hotspot, by changing the image dynamically.
+> **Note:** If you manage the props by state, you can update the component smoothly (example: updating yaw, pitch or hfov won't re-render the image and it will dynamically update)
 
 ## Demo
 
@@ -169,6 +170,8 @@ pannellum-react has most of the official pannellum properties (not all of them).
 
 Additionally, by Getting refrence of the component, you can get the pannellum **Viewer** calling `getViewer()` which gives all the available functions of the viewer such as `getPitch`, `setPitch` , `getyaw` and etc. find [here](https://pannellum.org/documentation/api/#viewer)
 
+Moreover, you can force render the component using `forceRender()` in case if you change a prop and didn't change constantly.(example would be hotspot: if you want to update hotspot dynamically, better to call forceRender after updating the hotspots)
+
 > example `this.PanImage.current.getViewer().getPitch()`, PanImage is ref of the component.
 
 > This is working also for the video component
@@ -200,7 +203,7 @@ Additionally, by Getting refrence of the component, you can get the pannellum **
 | tooltipArg     | Object   | {}                         | (createTooltipArgs) will be passed to handleClick                                             |
 | handleClick    | Function | logging the handleClickArg | (clickHandlerFunc) fires onclick of hotspot                                                   |
 | handleClickArg | Object   | {}                         | (clickHandlerArgs) will be passed to handleClick                                              |
-| cssClass       | String   | tooltipcss                 | String is used as the CSS class for the hot spot                                              |
+| cssClass       | String   | tooltipcss                 | String is used as the CSS class for the hotspot                                               |
 
 ---
 

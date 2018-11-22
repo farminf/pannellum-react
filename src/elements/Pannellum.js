@@ -217,7 +217,6 @@ class Pannellum extends PureComponent {
   };
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    // this.renderImage("update");
     if (
       prevProps.image !== this.props.image ||
       prevProps.width !== this.props.width ||
@@ -230,7 +229,8 @@ class Pannellum extends PureComponent {
       prevProps.previewAuthor !== this.props.previewAuthor ||
       prevProps.showZoomCtrl !== this.props.showZoomCtrl ||
       prevProps.showFullscreenCtrl !== this.props.showFullscreenCtrl ||
-      prevProps.showControls !== this.props.showControls
+      prevProps.showControls !== this.props.showControls ||
+      prevProps.children.length !== this.props.children.length
     ) {
       this.renderImage("update");
     }
@@ -276,6 +276,10 @@ class Pannellum extends PureComponent {
 
   getViewer = () => {
     return this.panorama;
+  };
+
+  forceRender = () => {
+    this.renderImage("update");
   };
 
   render() {
