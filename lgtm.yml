@@ -2,4 +2,4 @@ extraction:
   javascript:
     index:
       filters:
-        - exclude: "src/pannellum/*"
+        - exclude: "src/pannellum/**"
