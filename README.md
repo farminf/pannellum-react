@@ -2,7 +2,6 @@
 
 [![Travis][build-badge]][build]
 [![npm package][npm-badge]][npm]
-[![Coveralls][coveralls-badge]][coveralls]
 
 React Component library for the [Pannellum](https://github.com/mpetroff/pannellum/) project.
 
@@ -50,7 +49,7 @@ you can also use codesandbox playground
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 
-import { Pannellum } from "pannellum-react";
+import { Pannellum, PannellumVideo } from "pannellum-react";
 import myImage from "./images/alma.jpg";
 import myVideo from "./images/video.mp4";
 
@@ -75,7 +74,7 @@ const PannellumReact = () => (
         pitch={11}
         yaw={-167}
         text="Info Hotspot Text 3"
-        URL="https://github.com/farminf"
+        URL="https://github.com/farminf/pannellum-react"
       />
 
       <Pannellum.Hotspot
@@ -83,7 +82,7 @@ const PannellumReact = () => (
         pitch={31}
         yaw={-107}
         text="Info Hotspot Text 4"
-        URL="https://github.com/farminf"
+        URL="https://github.com/farminf/pannellum-react"
       />
     </Pannellum>
 
