@@ -8,7 +8,7 @@ import videojs from 'video.js'
 (function(document, videojs, pannellum) {
     'use strict';
     
-    videojs.plugin('pannellum', function(config) {
+    videojs.registerPlugin('pannellum', function(config) {
         // Create Pannellum instance
         var player = this;
         var container = player.el();
