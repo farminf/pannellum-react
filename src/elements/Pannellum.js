@@ -66,7 +66,10 @@ class Pannellum extends PureComponent {
     handleClick: propTypes.func,
     handleClickArg: propTypes.object,
     cssClass: propTypes.string,
-    onRender: propTypes.func
+    onRender: propTypes.func,
+    haov: propTypes.number,
+    vaov: propTypes.number,
+    vOffset: propTypes.number
   };
 
   static defaultProps = {
@@ -109,7 +112,10 @@ class Pannellum extends PureComponent {
     onTouchstart: () => {},
     onTouchend: () => {},
     hotspotDebug: false,
-    onRender: null
+    onRender: null,
+    haov: -1,
+    vaov: -1,
+    vOffset: 0
   };
 
   renderImage = state => {
@@ -190,7 +196,10 @@ class Pannellum extends PureComponent {
       showControls: this.props.showControls,
       hotSpotDebug: this.props.hotspotDebug,
       hotSpots: hotspotArray,
-      onRender: this.props.onRender
+      onRender: this.props.onRender,
+      haov: this.props.haov,
+      vaov: this.props.vaov,
+      vOffset: this.props.vOffset
     };
 
     Object.keys(jsonConfig).forEach(
