@@ -252,6 +252,9 @@ in addition there are also pannellum properties(panorama) which works on video
   width="100%"
   height="500px"
   image={myImage}
+  haov={180}
+  vaov={90}
+  vOffset={1}
   pitch={10}
   yaw={180}
   hfov={110}
