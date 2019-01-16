@@ -168,7 +168,7 @@ pannellum-react has most of the official pannellum properties (not all of them).
 | hotspotDebug           | Boolean  | false                   | For debug pupose (finding correct point for hotspot)                                            |
 | haov                   | Number   | -1                      | Initial horizontal angle of view                                                                |
 | vaov                   | Number   | -1                      | Initial vertical angle of view                                                                  |
-| vOffsect               | Number   | 0                       | Initial vertical offset angle                                            |
+| vOffsect               | Number   | 0                       | Initial vertical offset angle                                                                   |
 
 Additionally, by Getting refrence of the component, you can get the pannellum **Viewer** calling `getViewer()` which gives all the available functions of the viewer such as `getPitch`, `setPitch` , `getyaw` and etc. find [here](https://pannellum.org/documentation/api/#viewer)
 
