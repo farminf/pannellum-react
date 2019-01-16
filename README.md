@@ -134,6 +134,9 @@ pannellum-react has most of the official pannellum properties (not all of them).
 | width                  | String   | "100%"                  | The width of the panorama div                                                                   |
 | height                 | String   | "400px"                 | The height of the panorama div                                                                  |
 | image                  | String   | ""                      | The 360 image path                                                                              |
+| haov                   | Number   | 360                     | Initial horizontal angle of view                                                                |
+| vaov                   | Number   | 180                     | Initial vertical angle of view                                                                  |
+| vOffsect               | Number   | 0                       | Initial vertical offset angle                                                                   |
 | yaw                    | Number   | 0                       | Starting yaw position in degrees                                                                |
 | pitch                  | Number   | 0                       | Starting pitch position in degrees                                                              |
 | hfov                   | Number   | 100                     | Starting horizontal field of view in degrees                                                    |
@@ -166,9 +169,6 @@ pannellum-react has most of the official pannellum properties (not all of them).
 | onTouchstart           | Function |                         | Callbakc function which calls after touch starts                                                |
 | onTouchend             | Function |                         | Callbakc function which calls after touch ends                                                  |
 | hotspotDebug           | Boolean  | false                   | For debug pupose (finding correct point for hotspot)                                            |
-| haov                   | Number   | -1                      | Initial horizontal angle of view                                                                |
-| vaov                   | Number   | -1                      | Initial vertical angle of view                                                                  |
-| vOffsect               | Number   | 0                       | Initial vertical offset angle                                                                   |
 
 Additionally, by Getting refrence of the component, you can get the pannellum **Viewer** calling `getViewer()` which gives all the available functions of the viewer such as `getPitch`, `setPitch` , `getyaw` and etc. find [here](https://pannellum.org/documentation/api/#viewer)
 
