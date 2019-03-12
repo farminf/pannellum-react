@@ -48,6 +48,7 @@ class Pannellum extends PureComponent {
     keyboardZoom: propTypes.bool,
     mouseZoom: propTypes.bool,
     draggable: propTypes.bool,
+    disableKeyboardCtrl : propTypes.bool,
     showFullscreenCtrl: propTypes.bool,
     showControls: propTypes.bool,
     onLoad: propTypes.func,
@@ -64,7 +65,8 @@ class Pannellum extends PureComponent {
     tooltipArg: propTypes.object,
     handleClick: propTypes.func,
     handleClickArg: propTypes.object,
-    cssClass: propTypes.string
+    cssClass: propTypes.string,
+    onRender: propTypes.func
   };
 
   static defaultProps = {
@@ -94,6 +96,7 @@ class Pannellum extends PureComponent {
     keyboardZoom: true,
     mouseZoom: true,
     draggable: true,
+    disableKeyboardCtrl: false,
     showFullscreenCtrl: true,
     showControls: true,
     onLoad: () => {},
@@ -105,7 +108,8 @@ class Pannellum extends PureComponent {
     onMouseup: () => {},
     onTouchstart: () => {},
     onTouchend: () => {},
-    hotspotDebug: false
+    hotspotDebug: false,
+    onRender: null
   };
 
   renderImage = state => {
@@ -181,10 +185,12 @@ class Pannellum extends PureComponent {
       keyboardZoom: this.props.keyboardZoom,
       mouseZoom: this.props.mouseZoom,
       draggable: this.props.draggable,
+      disableKeyboardCtrl: this.props.disableKeyboardCtrl,
       showFullscreenCtrl: this.props.showFullscreenCtrl,
       showControls: this.props.showControls,
       hotSpotDebug: this.props.hotspotDebug,
-      hotSpots: hotspotArray
+      hotSpots: hotspotArray,
+      onRender: this.props.onRender
     };
 
     Object.keys(jsonConfig).forEach(
