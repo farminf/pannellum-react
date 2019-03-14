@@ -2103,7 +2103,8 @@ window.pannellum = (function(window, document, undefined) {
  * @private
  */
     function onFullScreenChange() {
-      if (document.fullscreen || document.mozFullScreen || document.webkitIsFullScreen || document.msFullscreenElement) {
+      let isFullScreen = (window.innerWidth == screen.width && window.innerHeight == screen.height);
+      if (document.fullscreen || document.mozFullScreen || document.webkitIsFullScreen || document.msFullscreenElement || isFullScreen) {
         controls.fullscreen.classList.add('pnlm-fullscreen-toggle-button-active');
         fullscreenActive = true;
       } else {

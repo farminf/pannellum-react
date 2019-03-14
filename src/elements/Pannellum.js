@@ -26,6 +26,9 @@ class Pannellum extends PureComponent {
     width: propTypes.string,
     height: propTypes.string,
     image: propTypes.string,
+    haov: propTypes.number,
+    vaov: propTypes.number,
+    vOffset: propTypes.number,
     yaw: propTypes.number,
     pitch: propTypes.number,
     hfov: propTypes.number,
@@ -66,7 +69,7 @@ class Pannellum extends PureComponent {
     handleClick: propTypes.func,
     handleClickArg: propTypes.object,
     cssClass: propTypes.string,
-    onRender: propTypes.func
+    onRender: propTypes.func,
   };
 
   static defaultProps = {
@@ -74,6 +77,9 @@ class Pannellum extends PureComponent {
     width: "100%",
     height: "400px",
     image: "",
+    haov: 360,
+    vaov: 180,
+    vOffset: 0,
     yaw: 0,
     pitch: 0,
     hfov: 100,
@@ -109,7 +115,7 @@ class Pannellum extends PureComponent {
     onTouchstart: () => {},
     onTouchend: () => {},
     hotspotDebug: false,
-    onRender: null
+    onRender: null,
   };
 
   renderImage = state => {
@@ -163,6 +169,9 @@ class Pannellum extends PureComponent {
     let jsonConfig = {
       type: "equirectangular",
       panorama: this.props.image,
+      haov: this.props.haov,
+      vaov: this.props.vaov,
+      vOffset: this.props.vOffset,
       yaw: this.props.yaw,
       pitch: this.props.pitch,
       hfov: this.props.hfov,
@@ -190,7 +199,7 @@ class Pannellum extends PureComponent {
       showControls: this.props.showControls,
       hotSpotDebug: this.props.hotspotDebug,
       hotSpots: hotspotArray,
-      onRender: this.props.onRender
+      onRender: this.props.onRender,
     };
 
     Object.keys(jsonConfig).forEach(
