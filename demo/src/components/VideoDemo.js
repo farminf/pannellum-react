@@ -14,7 +14,7 @@ export default class componentName extends Component {
   }
     
   componentDidMount (){
-    console.log(this.ref.current)
+    console.log(this.ref.current);
   }
     
   hanldeClick = (path)=>{
@@ -40,12 +40,16 @@ export default class componentName extends Component {
     return (
       <div className="video_main">
         <h2 className="section_title">Video Component</h2>
-        <button onClick={()=> {
-            this.ref.current.video.pause()
-        }} >stop</button>
-        <button onClick={()=> {
-            this.ref.current.video.play()
-        }} >play</button>
+        <button
+          onClick={()=> {
+            this.ref.current.video.pause();
+          }}
+        >stop</button>
+        <button
+          onClick={()=> {
+            this.ref.current.video.play();
+          }}
+        >play</button>
         <div className="pannellum_div" >
           {this.state.scene === 1 
             ?
@@ -64,6 +68,7 @@ export default class componentName extends Component {
                 maxHfov={150}
                 hotSpotDebug
                 mouseZoom={false}
+                controls
               >
                 <Pannellum.Hotspot 
                   type="custom"
