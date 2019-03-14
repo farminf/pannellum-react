@@ -1471,6 +1471,10 @@ window.pannellum = (function(window, document, undefined) {
           compass.style.transform = 'rotate(' + (-config.yaw - config.northOffset) + 'deg)';
           compass.style.webkitTransform = 'rotate(' + (-config.yaw - config.northOffset) + 'deg)';
         }
+        
+        if (config.onRender) {
+          config.onRender();
+        }
       }
     }
 
