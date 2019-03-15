@@ -71,6 +71,8 @@ export default class ImageDemo extends Component {
         <div className="pannellum_div">
           <Pannellum
             ref={this.ref}
+            id="sceneId"
+            sceneId="firstScene"
             width="800px"
             height="400px"
             image={this.state.mediaPhoto}

@@ -210,10 +210,19 @@ class Pannellum extends PureComponent {
     if (state === "update") {
       this.panorama.destroy();
     } 
-    this.panorama = pannellum.viewer(
-      this.props.id ? this.props.id : this.state.id,
-      jsonConfig
-    );
+
+    const panorama = jsonConfig.panorama;
+    this.panorama = pannellum.viewer(this.props.id, {
+      default: {
+        firstScene: this.props.id ? this.props.id : this.state.id
+      },
+      scenes: {
+        [this.props.id ? this.props.id : this.state.id]: {
+          ...jsonConfig,
+          panorama
+        }
+      }
+    });
 
     this.panorama.on("load", this.props.onLoad);
     this.panorama.on("scenechange", this.props.onScenechange);
