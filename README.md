@@ -157,17 +157,19 @@ pannellum-react has most of the official pannellum properties (not all of them).
 | orientationOnByDefault | Boolean  | false                   | If true Device orientation will work if device supported                                        |
 | showZoomCtrl           | Boolean  | true                    | The zoom control display on the image                                                           |
 | keyboardZoom           | Boolean  | true                    | Enables zoom control from keyboard if true                                                      |
+| disableKeyboardCtrl    | Boolean  | false                   | Disables control from keyboard if true                                                          |
 | mouseZoom              | Boolean  | true                    | Enables zoom control with mouse if true                                                         |
 | draggable              | Boolean  | true                    | If false, mouse and touch dragging is disabled                                                  |
 | showFullscreenCtrl     | Boolean  | true                    | FullScreen control display                                                                      |
 | showControls           | Boolean  | true                    | if False, no control displays                                                                   |
-| onLoad                 | Function |                         | Callbakc function which fires after loading                                                     |
-| onError                | Function |                         | Callbakc function which fires after error                                                       |
-| onErrorcleared         | Function |                         | Callbakc function which calls after clearing the error                                          |
-| onMousedown            | Function |                         | Callbakc function which calls after mouse button press                                          |
-| onMouseup              | Function |                         | Callbakc function which calls after mouse button release                                        |
-| onTouchstart           | Function |                         | Callbakc function which calls after touch starts                                                |
-| onTouchend             | Function |                         | Callbakc function which calls after touch ends                                                  |
+| onLoad                 | Function |                         | Callback function which fires after loading                                                     |
+| onRender               | Function |                         | Callback function which fires after each render, helpful if you need to react to yaw/pitch/roll/zoom changes                                                     |
+| onError                | Function |                         | Callback function which fires after error                                                       |
+| onErrorcleared         | Function |                         | Callback function which calls after clearing the error                                          |
+| onMousedown            | Function |                         | Callback function which calls after mouse button press                                          |
+| onMouseup              | Function |                         | Callback function which calls after mouse button release                                        |
+| onTouchstart           | Function |                         | Callback function which calls after touch starts                                                |
+| onTouchend             | Function |                         | Callback function which calls after touch ends                                                  |
 | hotspotDebug           | Boolean  | false                   | For debug pupose (finding correct point for hotspot)                                            |
 
 Additionally, by Getting refrence of the component, you can get the pannellum **Viewer** calling `getViewer()` which gives all the available functions of the viewer such as `getPitch`, `setPitch` , `getyaw` and etc. find [here](https://pannellum.org/documentation/api/#viewer)
