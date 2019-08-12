@@ -121,7 +121,7 @@ class Pannellum extends PureComponent {
   renderImage = state => {
     const { children } = this.props;
     // make the array of sub components, even if its one, it become array of one
-    let hotspots = [...children];
+    let hotspots = children.flatMap(child => child);
     let hotspotArray = [];
     if (Array.isArray(hotspots)) {
       hotspots.map(hotspot => {
