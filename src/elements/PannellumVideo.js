@@ -154,7 +154,10 @@ class PannellumVideo extends Component {
         } 
       });
       this.video.src({ type: 'video/mp4', src: this.props.video });
-      this.video.play();
+      
+      if (this.props.autoplay) {
+        this.video.play();
+      }
     }
   }
 
