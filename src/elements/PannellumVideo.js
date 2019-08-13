@@ -130,7 +130,10 @@ class PannellumVideo extends Component {
         type: 'video/mp4', 
         src: this.props.video 
       });
-      return this.video.play();
+      
+      if (this.props.autoplay) {
+        return this.video.play();
+      }
     } else {
       this.video = videojs(this.videoNode, {
         loop:this.props.loop,
