@@ -44,6 +44,7 @@ class PannellumVideo extends Component {
     autoplay:propTypes.bool,
     controls:propTypes.bool,
     muted:propTypes.bool,
+    poster: propTypes.string,
     tooltip: propTypes.func,
     tooltipArg: propTypes.object,
     handleClick:propTypes.func,
@@ -71,7 +72,8 @@ class PannellumVideo extends Component {
     loop:false,
     autoplay:true,
     controls:false,
-    muted: true
+    muted: true,
+    poster: '',
   }
 
   renderVideo = (state) =>{
@@ -128,13 +130,17 @@ class PannellumVideo extends Component {
         type: 'video/mp4', 
         src: this.props.video 
       });
-      return this.video.play();
+      
+      if (this.props.autoplay) {
+        return this.video.play();
+      }
     } else {
       this.video = videojs(this.videoNode, {
         loop:this.props.loop,
         autoplay:this.props.autoplay,
         controls:this.props.controls,
         muted: this.props.muted,
+        poster: this.props.poster,
         plugins: {
           pannellum: {
             yaw : this.props.yaw,
@@ -154,7 +160,10 @@ class PannellumVideo extends Component {
         } 
       });
       this.video.src({ type: 'video/mp4', src: this.props.video });
-      this.video.play();
+
+      if (this.props.autoplay) {
+        this.video.play();
+      }
     }
   }
 

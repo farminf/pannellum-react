@@ -217,11 +217,12 @@ these are videojs configuration properties which can be used
 
 | Name     | Type    | Default | Description                   |
 | -------- | ------- | ------- | ----------------------------- |
-| video    | String  | " "     | Path to your 360 video        |
+| video    | String  | ""     | Path to your 360 video        |
 | loop     | Boolean | false   | Looping over video            |
 | autoplay | Boolean | true    | Play the video as page loaded |
-| controls | Boolean | false   | showing controls under        |
-| muted    | Boolean | true    | making video mute             |
+| controls | Boolean | false   | Showing controls under        |
+| muted    | Boolean | true    | Making video mute             |
+| poster   | Boolean | ""    | Source of an image to display as a poster             |
 
 in addition there are also pannellum properties(panorama) which works on video
 
