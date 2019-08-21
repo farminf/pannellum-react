@@ -2740,7 +2740,10 @@ window.pannellum = (function(window, document, undefined) {
  * @returns {string} ID of current scene
  */
     this.getScene = function() {
-      return config.scene;
+      return {
+        currentSceneId: config.scene,
+        sceneConfig: config.scenes[config.scene]
+      };
     };
 
     /**
