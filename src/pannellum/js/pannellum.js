@@ -67,7 +67,8 @@ window.pannellum = (function(window, document, undefined) {
       externalEventListeners = {},
       specifiedPhotoSphereExcludes = [],
       update = false, // Should we update when still to render dynamic content
-      hotspotsCreated = false;
+      hotspotsCreated = false,
+      xhr;
 
     var defaultConfig = {
       hfov: 100,
@@ -387,7 +388,7 @@ window.pannellum = (function(window, document, undefined) {
             onImageLoad();
           };
             
-          var xhr = new XMLHttpRequest();
+          xhr = new XMLHttpRequest();
           xhr.onloadend = function() {
             if (xhr.status != 200) {
               // Display error if image can't be loaded
@@ -396,9 +397,11 @@ window.pannellum = (function(window, document, undefined) {
               a.textContent = a.href;
               anError(config.strings.fileAccessError.replace('%s', a.outerHTML));
             }
-            var img = this.response;
-            parseGPanoXMP(img);
-            infoDisplay.load.msg.innerHTML = '';
+            else {
+              var img = this.response;
+              parseGPanoXMP(img);
+              infoDisplay.load.msg.innerHTML = '';
+            }
           };
           xhr.onprogress = function(e) {
             if (e.lengthComputable) {
@@ -440,7 +443,7 @@ window.pannellum = (function(window, document, undefined) {
       }
     
       if (config.draggable)
-        {uiContainer.classList.add('pnlm-grab');}
+      {uiContainer.classList.add('pnlm-grab');}
       uiContainer.classList.remove('pnlm-grabbing');
     }
 
@@ -2208,6 +2211,7 @@ window.pannellum = (function(window, document, undefined) {
 
       controls.load.style.display = 'none';
       infoDisplay.load.box.style.display = 'inline';
+      
       init();
     }
 
@@ -3004,6 +3008,9 @@ window.pannellum = (function(window, document, undefined) {
  * @memberof Viewer
  */
     this.destroy = function() {
+      if (xhr && xhr instanceof XMLHttpRequest) {
+        xhr.abort();
+      };
       if (renderer)
         {renderer.destroy()};
       if (listenersAdded) {

@@ -1,6 +1,6 @@
 {
   "name": "@buildertrend/pannellum-react",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Pannellum React Component",
   "main": "lib/index.js",
   "module": "es/index.js",

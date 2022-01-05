@@ -209,7 +209,8 @@ class Pannellum extends PureComponent {
 
     if (state === "update") {
       this.panorama.destroy();
-    } 
+    };
+
     this.panorama = pannellum.viewer(
       this.props.id ? this.props.id : this.state.id,
       jsonConfig
@@ -229,6 +230,10 @@ class Pannellum extends PureComponent {
 
   componentDidMount = () => {
     this.renderImage("mount");
+  };
+
+  componentWillUnmount = () => {
+    this.panorama.destroy();
   };
 
   componentDidUpdate(prevProps, prevState, snapshot) {
