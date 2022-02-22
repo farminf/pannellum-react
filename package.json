@@ -20,18 +20,18 @@
     "deploy": "gh-pages -d demo/dist"
   },
   "dependencies": {
-    "video.js": "^7.1.0"
+    "video.js": "^7.17.0"
   },
   "peerDependencies": {
-    "react": "16.x"
+    "react": "x"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.1",
-    "enzyme": "^3.3.0",
+    "babel-eslint": "^10.1.0",
+    "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "eslint": "^5.8.0",
+    "eslint": "^5.16.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-react": "^7.28.0",
     "gh-pages": "^1.2.0",
     "nwb": "0.25.2",
     "react": "17.0.2",
