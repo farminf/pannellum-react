@@ -22,6 +22,12 @@ Install pannellum-react component
 npm install pannellum-react --save
 ```
 
+or
+
+```
+yarn add pannellum-react
+```
+
 Import pannellum-react in your react component file by
 
 ```js
@@ -128,49 +134,49 @@ pannellum-react has most of the official pannellum properties (not all of them).
 
 ### **Props API**
 
-| Name                   | Type     | Default                 | Description                                                                                     |
-| ---------------------- | -------- | ----------------------- | ----------------------------------------------------------------------------------------------- |
-| id                     | String   | Unique Generated String | If you pass it, it will use it for div id, if not it would be unique string for each component  |
-| width                  | String   | "100%"                  | The width of the panorama div                                                                   |
-| height                 | String   | "400px"                 | The height of the panorama div                                                                  |
-| image                  | String   | ""                      | The 360 image path                                                                              |
-| haov                   | Number   | 360                     | Initial horizontal angle of view                                                                |
-| vaov                   | Number   | 180                     | Initial vertical angle of view                                                                  |
-| vOffsect               | Number   | 0                       | Initial vertical offset angle                                                                   |
-| yaw                    | Number   | 0                       | Starting yaw position in degrees                                                                |
-| pitch                  | Number   | 0                       | Starting pitch position in degrees                                                              |
-| hfov                   | Number   | 100                     | Starting horizontal field of view in degrees                                                    |
-| maxHfov                | Number   | 150                     | Maximum field of view which user can zoom (in degrees)                                          |
-| minHfov                | Number   | 50                      | Minimum field of view which user can zoom (in degrees)                                          |
-| maxPitch               | Number   | 90                      | Maximum field of view pitch (in degrees)                                                        |
-| minPitch               | Number   | -90                     | Minimum field of view pitch (in degrees)                                                        |
-| maxYaw                 | Number   | 180                     | Maximum field of view yaw (in degrees)                                                          |
-| minYaw                 | Number   | -180                    | Minimum field of view yaw (in degrees)                                                          |
-| autoRotate             | Number   | 0                       | rotation speed in degrees per second. Positive is counter-clockwise, and negative is clockwise. |
-| compass                | Boolean  | false                   | Showing compass if true                                                                         |
-| title                  | String   | ""                      | Displays as the panorama’s title                                                                |
-| author                 | String   | ""                      | Displays as the panorama’s author                                                               |
-| preview                | String   | ""                      | Preview image path to display                                                                   |
-| previewTitle           | String   | ""                      | Preview title to display                                                                        |
-| previewAuthor          | String   | ""                      | Preview Author to display                                                                       |
-| autoLoad               | Boolean  | false                   | Load and dsplay the image automatically if true                                                 |
-| orientationOnByDefault | Boolean  | false                   | If true Device orientation will work if device supported                                        |
-| showZoomCtrl           | Boolean  | true                    | The zoom control display on the image                                                           |
-| keyboardZoom           | Boolean  | true                    | Enables zoom control from keyboard if true                                                      |
-| disableKeyboardCtrl    | Boolean  | false                   | Disables control from keyboard if true                                                          |
-| mouseZoom              | Boolean  | true                    | Enables zoom control with mouse if true                                                         |
-| draggable              | Boolean  | true                    | If false, mouse and touch dragging is disabled                                                  |
-| showFullscreenCtrl     | Boolean  | true                    | FullScreen control display                                                                      |
-| showControls           | Boolean  | true                    | if False, no control displays                                                                   |
-| onLoad                 | Function |                         | Callback function which fires after loading                                                     |
-| onRender               | Function |                         | Callback function which fires after each render, helpful if you need to react to yaw/pitch/roll/zoom changes                                                     |
-| onError                | Function |                         | Callback function which fires after error                                                       |
-| onErrorcleared         | Function |                         | Callback function which calls after clearing the error                                          |
-| onMousedown            | Function |                         | Callback function which calls after mouse button press                                          |
-| onMouseup              | Function |                         | Callback function which calls after mouse button release                                        |
-| onTouchstart           | Function |                         | Callback function which calls after touch starts                                                |
-| onTouchend             | Function |                         | Callback function which calls after touch ends                                                  |
-| hotspotDebug           | Boolean  | false                   | For debug pupose (finding correct point for hotspot)                                            |
+| Name                   | Type     | Default                 | Description                                                                                                  |
+| ---------------------- | -------- | ----------------------- | ------------------------------------------------------------------------------------------------------------ |
+| id                     | String   | Unique Generated String | If you pass it, it will use it for div id, if not it would be unique string for each component               |
+| width                  | String   | "100%"                  | The width of the panorama div                                                                                |
+| height                 | String   | "400px"                 | The height of the panorama div                                                                               |
+| image                  | String   | ""                      | The 360 image path                                                                                           |
+| haov                   | Number   | 360                     | Initial horizontal angle of view                                                                             |
+| vaov                   | Number   | 180                     | Initial vertical angle of view                                                                               |
+| vOffsect               | Number   | 0                       | Initial vertical offset angle                                                                                |
+| yaw                    | Number   | 0                       | Starting yaw position in degrees                                                                             |
+| pitch                  | Number   | 0                       | Starting pitch position in degrees                                                                           |
+| hfov                   | Number   | 100                     | Starting horizontal field of view in degrees                                                                 |
+| maxHfov                | Number   | 150                     | Maximum field of view which user can zoom (in degrees)                                                       |
+| minHfov                | Number   | 50                      | Minimum field of view which user can zoom (in degrees)                                                       |
+| maxPitch               | Number   | 90                      | Maximum field of view pitch (in degrees)                                                                     |
+| minPitch               | Number   | -90                     | Minimum field of view pitch (in degrees)                                                                     |
+| maxYaw                 | Number   | 180                     | Maximum field of view yaw (in degrees)                                                                       |
+| minYaw                 | Number   | -180                    | Minimum field of view yaw (in degrees)                                                                       |
+| autoRotate             | Number   | 0                       | rotation speed in degrees per second. Positive is counter-clockwise, and negative is clockwise.              |
+| compass                | Boolean  | false                   | Showing compass if true                                                                                      |
+| title                  | String   | ""                      | Displays as the panorama’s title                                                                             |
+| author                 | String   | ""                      | Displays as the panorama’s author                                                                            |
+| preview                | String   | ""                      | Preview image path to display                                                                                |
+| previewTitle           | String   | ""                      | Preview title to display                                                                                     |
+| previewAuthor          | String   | ""                      | Preview Author to display                                                                                    |
+| autoLoad               | Boolean  | false                   | Load and dsplay the image automatically if true                                                              |
+| orientationOnByDefault | Boolean  | false                   | If true Device orientation will work if device supported                                                     |
+| showZoomCtrl           | Boolean  | true                    | The zoom control display on the image                                                                        |
+| keyboardZoom           | Boolean  | true                    | Enables zoom control from keyboard if true                                                                   |
+| disableKeyboardCtrl    | Boolean  | false                   | Disables control from keyboard if true                                                                       |
+| mouseZoom              | Boolean  | true                    | Enables zoom control with mouse if true                                                                      |
+| draggable              | Boolean  | true                    | If false, mouse and touch dragging is disabled                                                               |
+| showFullscreenCtrl     | Boolean  | true                    | FullScreen control display                                                                                   |
+| showControls           | Boolean  | true                    | if False, no control displays                                                                                |
+| onLoad                 | Function |                         | Callback function which fires after loading                                                                  |
+| onRender               | Function |                         | Callback function which fires after each render, helpful if you need to react to yaw/pitch/roll/zoom changes |
+| onError                | Function |                         | Callback function which fires after error                                                                    |
+| onErrorcleared         | Function |                         | Callback function which calls after clearing the error                                                       |
+| onMousedown            | Function |                         | Callback function which calls after mouse button press                                                       |
+| onMouseup              | Function |                         | Callback function which calls after mouse button release                                                     |
+| onTouchstart           | Function |                         | Callback function which calls after touch starts                                                             |
+| onTouchend             | Function |                         | Callback function which calls after touch ends                                                               |
+| hotspotDebug           | Boolean  | false                   | For debug pupose (finding correct point for hotspot)                                                         |
 
 Additionally, by Getting refrence of the component, you can get the pannellum **Viewer** calling `getViewer()` which gives all the available functions of the viewer such as `getPitch`, `setPitch` , `getyaw` and etc. find [here](https://pannellum.org/documentation/api/#viewer)
 
