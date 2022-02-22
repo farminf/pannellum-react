@@ -5,5 +5,4 @@
 /node_modules
 /umd
 npm-debug.log*
-yarn.lock
 .idea/
