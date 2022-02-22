@@ -11,7 +11,7 @@ export default class ImageDemo extends Component {
       yaww: 180,
       test: false,
       updateText: "initial",
-      author: "author"
+      author: "farminf",
     };
     this.ref = React.createRef();
   }
@@ -19,14 +19,14 @@ export default class ImageDemo extends Component {
   hanldeClickImage = (evt, args) => {
     console.log(args.name);
     this.setState({
-      mediaPhoto: myImage2
+      mediaPhoto: myImage2,
     });
   };
 
   handleClick = () => {
     this.setState({
       mediaPhoto: myImage2,
-      test: false
+      test: false,
     });
   };
 
@@ -35,22 +35,21 @@ export default class ImageDemo extends Component {
       <div className="image_main">
         <div style={{ display: "flex", flexDirection: "row" }}>
           <button
-            onClick={() => this.setState(prevState => ({ author: "change" }))}
+            onClick={() =>
+              this.setState((prevState) => ({ author: "changed" }))
+            }
           >
-            {" "}
-            change author{" "}
+            change author
           </button>
           <button
             onClick={() =>
-              this.setState(prevState => ({ yaww: prevState.yaww + 10 }))
+              this.setState((prevState) => ({ yaww: prevState.yaww + 10 }))
             }
           >
-            {" "}
-            change yaw{" "}
+            change yaw
           </button>
           <button onClick={() => this.setState({ updateText: "after update" })}>
-            {" "}
-            Should not update{" "}
+            Should not update if any state out of main component changes
           </button>
           <h3>{this.state.updateText}</h3>
           <button
@@ -58,12 +57,11 @@ export default class ImageDemo extends Component {
               this.setState({ test: true, yaww: 100, mediaPhoto: myImage });
             }}
           >
-            {" "}
-            enable{" "}
+            Original image, Show other button, change the yaw
           </button>
           <div>
             {this.state.test && (
-              <button onClick={this.handleClick}> disable </button>
+              <button onClick={this.handleClick}> Show other image </button>
             )}
           </div>
         </div>
@@ -80,6 +78,7 @@ export default class ImageDemo extends Component {
             autoLoad
             author={this.state.author}
             title=""
+            compass
           >
             <Pannellum.Hotspot
               type="info"
