@@ -31,6 +31,8 @@ Import pannellum-react in your react component file by
 import { Pannellum, PannellumVideo } from "pannellum-react";
 ```
 
+_Note: By using import Pannellum from "pannellum-react/es/elements/Pannellum" the video.js component will be skipped, which decreases the production build by more than 500kb._
+
 > **Note:** Currently only `equirectangular` type is supported! planning to do also `multires`
 
 > **Note:** `Tours` component currently is not supported but is WIP.
