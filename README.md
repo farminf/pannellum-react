@@ -1,14 +1,11 @@
 # pannellum-react
 
-[![Travis][build-badge]][build]
 [![npm package][npm-badge]][npm]
 
 React Component library for the [Pannellum](https://github.com/mpetroff/pannellum/) project.
 
 _Special thanks to [Matthew Petroff](https://github.com/mpetroff)_
 
-[build-badge]: https://travis-ci.org/farminf/pannellum-react.svg?branch=master
-[build]: https://travis-ci.org/farminf/pannellum-react
 [npm-badge]: https://img.shields.io/npm/v/pannellum-react.svg
 [npm]: https://www.npmjs.org/package/pannellum-react
 [coveralls-badge]: https://coveralls.io/repos/github/farminf/pannellum-react/badge.svg?branch=master
