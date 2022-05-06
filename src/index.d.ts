@@ -25,6 +25,7 @@ export interface PannellumPropType {
   autoLoad?:	boolean;
   orientationOnByDefault?:	boolean;
   showZoomCtrl?:	boolean;
+  doubleClickZoom?:	boolean;
   keyboardZoom?:	boolean;
   disableKeyboardCtrl?:	boolean;
   mouseZoom?:	boolean;
@@ -51,7 +52,7 @@ export interface PannellumVideoPropType {
   autoplay?:	boolean;
   controls?:	boolean;
   muted?:	boolean;
-  
+
   width?:	string;
   height?:	string;
   video?:	string;
@@ -93,5 +94,5 @@ export interface PannellumHotspotCustomPropType {
 }
 export namespace Pannellum {
   export function Hotspot(props: PannellumHotspotPropType |  PannellumHotspotCustomPropType): JSX.Element;
-  
+
 }
