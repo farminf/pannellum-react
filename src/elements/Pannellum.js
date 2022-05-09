@@ -48,6 +48,7 @@ class Pannellum extends PureComponent {
     autoLoad: propTypes.bool,
     orientationOnByDefault: propTypes.bool,
     showZoomCtrl: propTypes.bool,
+    doubleClickZoom: propTypes.bool,
     keyboardZoom: propTypes.bool,
     mouseZoom: propTypes.bool,
     draggable: propTypes.bool,
@@ -99,6 +100,7 @@ class Pannellum extends PureComponent {
     autoLoad: false,
     orientationOnByDefault: false,
     showZoomCtrl: true,
+    doubleClickZoom: true,
     keyboardZoom: true,
     mouseZoom: true,
     draggable: true,
@@ -191,6 +193,7 @@ class Pannellum extends PureComponent {
       autoLoad: this.props.autoLoad,
       orientationOnByDefault: this.props.orientationOnByDefault,
       showZoomCtrl: this.props.showZoomCtrl,
+      doubleClickZoom: this.props.doubleClickZoom,
       keyboardZoom: this.props.keyboardZoom,
       mouseZoom: this.props.mouseZoom,
       draggable: this.props.draggable,
@@ -209,7 +212,7 @@ class Pannellum extends PureComponent {
 
     if (state === "update") {
       this.panorama.destroy();
-    } 
+    }
     this.panorama = pannellum.viewer(
       this.props.id ? this.props.id : this.state.id,
       jsonConfig
@@ -224,7 +227,7 @@ class Pannellum extends PureComponent {
     this.panorama.on("mouseup", this.props.onMouseup);
     this.panorama.on("touchstart", this.props.onTouchstart);
     this.panorama.on("touchend", this.props.onTouchend);
-    
+
   };
 
   componentDidMount = () => {
