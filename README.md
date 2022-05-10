@@ -176,6 +176,7 @@ pannellum-react has most of the official pannellum properties (not all of them).
 | onTouchstart           | Function |                         | Callback function which calls after touch starts                                                             |
 | onTouchend             | Function |                         | Callback function which calls after touch ends                                                               |
 | hotspotDebug           | Boolean  | false                   | For debug pupose (finding correct point for hotspot)                                                         |
+| doubleClickZoom        | Boolean  | true                    | Zoom if you double click                                                                                     |
 
 Additionally, by Getting refrence of the component, you can get the pannellum **Viewer** calling `getViewer()` which gives all the available functions of the viewer such as `getPitch`, `setPitch` , `getyaw` and etc. find [here](https://pannellum.org/documentation/api/#viewer)
 
