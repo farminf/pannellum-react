@@ -11,6 +11,8 @@ _Special thanks to [Matthew Petroff](https://github.com/mpetroff)_
 [coveralls-badge]: https://coveralls.io/repos/github/farminf/pannellum-react/badge.svg?branch=master
 [coveralls]: https://coveralls.io/github/farminf/pannellum-react
 
+**Currently there are some problem with React V18**
+
 ## Install and Import
 
 Install pannellum-react component
