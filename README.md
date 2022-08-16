@@ -180,7 +180,7 @@ pannellum-react has most of the official pannellum properties (not all of them).
 | hotspotDebug           | Boolean  | false                   | For debug pupose (finding correct point for hotspot)                                                         |
 | doubleClickZoom        | Boolean  | true                    | Zoom if you double click                                                                                     |
 
-Additionally, by Getting refrence of the component, you can get the pannellum **Viewer** calling `getViewer()` which gives all the available functions of the viewer such as `getPitch`, `setPitch` , `getyaw` and etc. find [here](https://pannellum.org/documentation/api/#viewer)
+Additionally, by Getting refrence of the component, you can get the pannellum **Viewer** calling `getViewer()` which gives all the available functions of the viewer such as `getPitch`, `setPitch` , `getYaw` and etc. find [here](https://pannellum.org/documentation/api/#viewer)
 
 Moreover, you can force render the component using `forceRender()` in case if you change a prop and didn't change constantly.(example would be hotspot: if you want to update hotspot dynamically, better to call forceRender after updating the hotspots)
 
