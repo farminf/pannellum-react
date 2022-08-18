@@ -1,9 +1,6 @@
 import propTypes from 'prop-types';
 import React, { Component } from 'react';
 import videojs from 'video.js';
-import '../pannellum/css/video-js.css';
-import '../pannellum/css/pannellum.css';
-import '../pannellum/css/style-textInfo.css';
 import '../pannellum/js/libpannellum.js';
 import '../pannellum/js/RequestAnimationFrame';
 import '../pannellum/js/pannellum.js';

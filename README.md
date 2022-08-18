@@ -57,6 +57,9 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 
 import { Pannellum, PannellumVideo } from "pannellum-react";
+import "pannellum-react/es/pannellum/css/video-js.css";
+import "pannellum-react/es/pannellum/css/pannellum.css";
+import "pannellum-react/es/pannellum/css/style-textInfo.css";
 import myImage from "./images/alma.jpg";
 import myVideo from "./images/video.mp4";
 
